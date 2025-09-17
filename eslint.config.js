@@ -9,7 +9,20 @@ export default [
 		files: ['**/*.{js,jsx}'],
 		languageOptions: {
 			ecmaVersion: 2020,
-			globals: globals.browser,
+			globals: {
+				// Browser globals
+				...Object.fromEntries(
+					Object.entries(globals.browser).map(([key]) => [key, 'readonly']),
+				),
+
+				// Project-specific custom globals
+				_: 'readonly',
+
+				// Node.js globals (e.g., for Vite config)
+				__dirname: 'readonly',
+				module: 'readonly',
+				process: 'readonly',
+			},
 			parserOptions: {
 				ecmaVersion: 'latest',
 				ecmaFeatures: { jsx: true },
@@ -28,6 +41,18 @@ export default [
 				'warn',
 				{ allowConstantExport: true },
 			],
+		},
+		settings: {
+			'import/resolver': {
+				node: {
+					extensions: ['.js', '.mjs', '.jsx', '.ts', '.tsx'],
+					exportConditions: ['production', 'import', 'default'],
+				},
+				alias: {
+					map: [['@', './src']],
+					extensions: ['.js', '.jsx', '.ts', '.tsx'],
+				},
+			},
 		},
 	},
 ];
