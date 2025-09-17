@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styles from './Card.module.scss';
 
 const Card = () => {
@@ -15,11 +13,11 @@ const Card = () => {
 					src={'/img/sneakers/1.jpg'}
 					alt='Sneakers'
 				/>
-				<h5>{}</h5>
+				<h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
 				<div className='d-flex justify-between align-center'>
-					<div className='d-flex flex-column'>
-						<span>Цена:</span>
-						<b>{550} руб.</b>
+					<div className='d-flex flex-column align-start'>
+						<span className='mb-5'>Цена:</span>
+						<b>12 999 руб.</b>
 					</div>
 					<img className={styles.plus} src={'img/btn-checked.svg'} alt='Plus' />
 				</div>
