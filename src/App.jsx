@@ -1,3 +1,4 @@
+import Card from '@/components/Card/Card';
 import Header from '@/components/Header';
 
 import './App.scss';
@@ -8,6 +9,7 @@ function App() {
 			<Header />
 			<div className='content p-40'>
 				<h1>Все кроссовки</h1>
+				<Card />
 			</div>
 		</div>
 	);
