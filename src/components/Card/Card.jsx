@@ -5,6 +5,11 @@ import styles from './Card.module.scss';
 const Card = ({ id, title, imageUrl, price, onFavorite, onPlus }) => {
 	const [isAdded, setIsAdded] = useState(false);
 
+	const onClickPlus = () => {
+		setIsAdded(!isAdded);
+		onPlus(id);
+	};
+
 	return (
 		<div className={styles.card}>
 			<>
@@ -20,7 +25,7 @@ const Card = ({ id, title, imageUrl, price, onFavorite, onPlus }) => {
 					</div>
 					<img
 						className={styles.plus}
-						onClick={() => setIsAdded(!isAdded)}
+						onClick={onClickPlus}
 						src={isAdded ? 'img/btn-checked.svg' : 'img/btn-plus.svg'}
 						alt='Plus'
 					/>

@@ -34,6 +34,15 @@ header {
 	h1 {
 		margin: 0;
 	}
+
+	.items {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		justify-content: center;
+		gap: 30px;
+		max-width: 1000px;
+		margin: 0 auto;
+	}
 }
 
 .search-block {
@@ -56,5 +65,40 @@ header {
 		padding: 13px;
 		font-size: 16px;
 		width: 200px;
+	}
+}
+
+.cartItem {
+	border: 1px solid #f3f3f3;
+	border-radius: 20px;
+	overflow: hidden;
+	padding: 20px;
+
+	.cartItemImg {
+		height: 70px;
+		width: 70px;
+		background-size: contain;
+		background-position: 0 -3px;
+		background-repeat: no-repeat;
+		margin-right: 20px;
+	}
+
+	p {
+		font-size: 16px;
+		margin: 0;
+	}
+
+	b {
+		font-size: 14px;
+	}
+
+	.removeBtn {
+		opacity: 0.5;
+		cursor: pointer;
+		transition: opacity 0.15s ease-in-out;
+
+		&:hover {
+			opacity: 1;
+		}
 	}
 }
