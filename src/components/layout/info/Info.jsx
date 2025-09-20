@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Info = ({ title, image, description }) => {
 	return (
 		<div className='cartEmpty d-flex align-center justify-center flex-column flex'>

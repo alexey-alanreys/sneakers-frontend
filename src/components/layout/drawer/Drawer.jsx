@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Info from '../Info';
+import Info from '@/components/layout/info/Info';
 
 import styles from './Drawer.module.scss';
 

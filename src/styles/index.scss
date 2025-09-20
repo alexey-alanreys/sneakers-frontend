@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 @use './spacing.scss' as *;
 @use './clear.scss' as *;
 @use './display.scss' as *;
@@ -162,11 +164,11 @@ header {
 	}
 
 	&:hover {
-		background: adjust-color(#9dd558, $lightness: 5%);
+		background: color.adjust(#9dd558, $lightness: 5%);
 	}
 
 	&:active {
-		background: adjust-color(#9dd558, $lightness: -5%);
+		background: color.adjust(#9dd558, $lightness: -5%);
 	}
 }
 
