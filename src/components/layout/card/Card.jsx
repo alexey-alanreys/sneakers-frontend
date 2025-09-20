@@ -46,27 +46,36 @@ const Card = ({
 			) : (
 				<>
 					{onFavorite && (
-						<div className={styles.favorite} onClick={onClickFavorite}>
+						<button
+							className={styles.card__favorite}
+							onClick={onClickFavorite}
+							aria-label='Добавить в закладки'
+						>
 							<img
 								src={isFavorite ? 'img/liked.svg' : 'img/unliked.svg'}
-								alt='Unliked'
+								alt='Закладки'
 							/>
-						</div>
+						</button>
 					)}
-					<img width='100%' height={135} src={imageUrl} alt='Sneakers' />
-					<h5>{title}</h5>
-					<div className='d-flex justify-between align-center'>
-						<div className='d-flex flex-column'>
+					<img className={styles.card__image} src={imageUrl} alt={title} />
+					<h5 className={styles.card__title}>{title}</h5>
+
+					<div className={styles.card__footer}>
+						<div className={styles.card__price}>
 							<span>Цена:</span>
 							<b>{price} руб.</b>
 						</div>
 						{onPlus && (
-							<img
-								className={styles.plus}
+							<button
+								className={styles.card__plus}
 								onClick={onClickPlus}
-								src={isAdded ? 'img/btn-checked.svg' : 'img/btn-plus.svg'}
-								alt='Plus'
-							/>
+								aria-label='Добавить в корзину'
+							>
+								<img
+									src={isAdded ? 'img/btn-checked.svg' : 'img/btn-plus.svg'}
+									alt='Добавить'
+								/>
+							</button>
 						)}
 					</div>
 				</>

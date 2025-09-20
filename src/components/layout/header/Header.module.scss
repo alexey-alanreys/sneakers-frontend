@@ -2,7 +2,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 40px;
+	padding: 4rem;
 	border-bottom: 1px solid #eaeaea;
 
 	.logo {
@@ -12,7 +12,7 @@
 		color: inherit;
 
 		&Image {
-			margin-right: 15px;
+			margin-right: 1.5rem;
 		}
 
 		&Text {
@@ -38,7 +38,7 @@
 		.navItem {
 			display: flex;
 			align-items: center;
-			margin-right: 20px;
+			margin-right: 2rem;
 			font-size: 1.4rem;
 			color: #5c5c5c;
 			cursor: pointer;
@@ -46,7 +46,7 @@
 			img {
 				width: 18px;
 				height: 18px;
-				margin-right: 8px;
+				margin-right: 0.8rem;
 			}
 
 			&:last-child {
