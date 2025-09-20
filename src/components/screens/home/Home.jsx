@@ -10,7 +10,7 @@ import { STORAGE_KEYS } from '@/constants/storage-keys.constants';
 
 import { storageService } from '@/services/storage.service';
 
-import './Home.module.scss';
+import styles from './Home.module.scss';
 
 const Home = () => {
 	const [items, setItems] = useState([]);
@@ -82,7 +82,7 @@ const Home = () => {
 	};
 
 	return (
-		<div className='wrapper'>
+		<>
 			{cartOpened && (
 				<Drawer
 					onClose={() => setCartOpened(false)}
@@ -90,43 +90,51 @@ const Home = () => {
 					items={cartItems}
 				/>
 			)}
-			<Header onClickCart={() => setCartOpened(!cartOpened)} />
-			<main className='content p-40'>
-				<section className='d-flex align-center justify-between mb-40'>
-					<h1>
-						{searchValue
-							? `Поиск по запросу: "${searchValue}"`
-							: 'Все кроссовки'}
-					</h1>
-					<div className='search-block d-flex'>
-						<img src='/img/search.svg' alt='Search' />
-						<input
-							onChange={onChangeSearchInput}
-							value={searchValue}
-							placeholder='Поиск...'
-						/>
-					</div>
-				</section>
-				<section className='items'>
-					{items &&
-						items
-							.filter((item) =>
-								item.title.toLowerCase().includes(searchValue.toLowerCase()),
-							)
-							.map((item) => (
-								<Card
-									key={item.id}
-									{...item}
-									onFavorite={onAddToFavorites}
-									onPlus={onAddToCart}
-									favorited={favorites.some(
-										(favorite) => favorite.id === item.id,
-									)}
-								/>
-							))}
-				</section>
-			</main>
-		</div>
+
+			<div className={styles.home}>
+				<Header onClickCart={() => setCartOpened(!cartOpened)} />
+
+				<main className={styles.home__content}>
+					<section className={styles.home__topbar}>
+						<h1 className={styles.home__title}>
+							{searchValue
+								? `Поиск по запросу: "${searchValue}"`
+								: 'Все кроссовки'}
+						</h1>
+						<div className={styles.search}>
+							<img
+								src='/img/search.svg'
+								alt='Search'
+								className={styles.search__icon}
+							/>
+							<input
+								onChange={onChangeSearchInput}
+								value={searchValue}
+								placeholder='Поиск...'
+								className={styles.search__input}
+							/>
+						</div>
+					</section>
+
+					<section className={styles.home__items}>
+						{items &&
+							items
+								.filter((item) =>
+									item.title.toLowerCase().includes(searchValue.toLowerCase()),
+								)
+								.map((item) => (
+									<Card
+										key={item.id}
+										{...item}
+										onFavorite={onAddToFavorites}
+										onPlus={onAddToCart}
+										favorited={favorites.some((fav) => fav.id === item.id)}
+									/>
+								))}
+					</section>
+				</main>
+			</div>
+		</>
 	);
 };
 

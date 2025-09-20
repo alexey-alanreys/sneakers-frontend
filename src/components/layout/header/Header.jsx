@@ -31,8 +31,8 @@ const Header = ({ onClickCart }) => {
 						className={`${styles.navItem}`}
 						onClick={() => navigate('/favorites')}
 					>
-						<img src='img/heart.svg' alt='Закладки' />
-						<span>Закладки</span>
+						<img src='img/heart.svg' alt='Избранное' />
+						<span>Избранное</span>
 					</li>
 					<li
 						className={`${styles.navItem}`}

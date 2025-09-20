@@ -49,11 +49,11 @@ const Card = ({
 						<button
 							className={styles.card__favorite}
 							onClick={onClickFavorite}
-							aria-label='Добавить в закладки'
+							aria-label='Добавить в избранное'
 						>
 							<img
 								src={isFavorite ? 'img/liked.svg' : 'img/unliked.svg'}
-								alt='Закладки'
+								alt='Избранное'
 							/>
 						</button>
 					)}

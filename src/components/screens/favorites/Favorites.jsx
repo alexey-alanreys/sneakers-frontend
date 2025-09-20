@@ -8,6 +8,8 @@ import { STORAGE_KEYS } from '@/constants/storage-keys.constants';
 
 import { storageService } from '@/services/storage.service';
 
+import styles from './Favorites.module.scss';
+
 const Favorites = () => {
 	const [favorites, setFavorites] = useState([]);
 	const [cartOpened, setCartOpened] = useState(false);
@@ -58,7 +60,7 @@ const Favorites = () => {
 	};
 
 	return (
-		<div className='wrapper'>
+		<>
 			{cartOpened && (
 				<Drawer
 					onClose={() => setCartOpened(false)}
@@ -66,25 +68,30 @@ const Favorites = () => {
 					items={cartItems}
 				/>
 			)}
-			<Header onClickCart={() => setCartOpened(!cartOpened)} />
-			<main className='content p-40'>
-				<section className='d-flex align-center justify-between mb-40'>
-					<h1>Мои закладки</h1>
-				</section>
-				<section className='items'>
-					{favorites &&
-						favorites.map((favorite) => (
-							<Card
-								key={favorite.id}
-								{...favorite}
-								onFavorite={onAddToFavorites}
-								onPlus={onAddToCart}
-								favorited={true}
-							/>
-						))}
-				</section>
-			</main>
-		</div>
+
+			<div className={styles.favorites}>
+				<Header onClickCart={() => setCartOpened(!cartOpened)} />
+
+				<main className={styles.favorites__content}>
+					<section className={styles.favorites__topbar}>
+						<h1 className={styles.favorites__title}>Избранное</h1>
+					</section>
+
+					<section className={styles.favorites__items}>
+						{favorites &&
+							favorites.map((favorite) => (
+								<Card
+									key={favorite.id}
+									{...favorite}
+									onFavorite={onAddToFavorites}
+									onPlus={onAddToCart}
+									favorited={true}
+								/>
+							))}
+					</section>
+				</main>
+			</div>
+		</>
 	);
 };
 
