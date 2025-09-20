@@ -9,6 +9,7 @@ import './App.scss';
 
 const App = () => {
 	const [items, setItems] = useState([]);
+	const [favorites, setFavorites] = useState([]);
 	const [cartItems, setCartItems] = useState([]);
 	const [searchValue, setSearchValue] = useState('');
 	const [cartOpened, setCartOpened] = useState(false);
@@ -22,6 +23,25 @@ const App = () => {
 			.get('https://68cb88e7716562cf5073d1cb.mockapi.io/cart')
 			.then((res) => setCartItems(res.data));
 	}, []);
+
+	const onAddToFavorites = (id) => {
+		setFavorites((prev) => {
+			const isInFavorites = prev.some((item) => item.id === id);
+
+			if (isInFavorites) {
+				return prev.filter((item) => item.id !== id);
+			} else {
+				const itemToAdd = items.find((item) => item.id === id);
+
+				axios.post(
+					'https://68cb88e7716562cf5073d1cb.mockapi.io/favorites',
+					itemToAdd,
+				);
+
+				return [...prev, itemToAdd];
+			}
+		});
+	};
 
 	const onAddToCart = (id) => {
 		setCartItems((prev) => {
@@ -82,7 +102,12 @@ const App = () => {
 						items
 							.filter((item) => item.title.toLowerCase().includes(searchValue))
 							.map((item) => (
-								<Card key={item.id} {...item} onPlus={onAddToCart} />
+								<Card
+									key={item.id}
+									{...item}
+									onFavorite={onAddToFavorites}
+									onPlus={onAddToCart}
+								/>
 							))}
 				</section>
 			</main>

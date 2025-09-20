@@ -2097,6 +2097,11 @@ punycode@^2.1.0:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.3.1.tgz#027422e2faec0b25e1549c3e1bd8309b9133b6e5"
   integrity sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==
 
+react-content-loader@^7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/react-content-loader/-/react-content-loader-7.1.1.tgz#e9a9746b1fa54f0cab4c39a543fb944371c83441"
+  integrity sha512-yNkqtd+15wXRLfDKZb5nTqDV2fPTG2kpUgeGRb+WBz43bU0j4DSGXETF0bnFr44fAoTPpm0Dya0WGdhpHSvtYA==
+
 react-dom@^19.1.1:
   version "19.1.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-19.1.1.tgz#2daa9ff7f3ae384aeb30e76d5ee38c046dc89893"
