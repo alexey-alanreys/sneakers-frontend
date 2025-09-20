@@ -162,11 +162,11 @@ header {
 	}
 
 	&:hover {
-		background: lighten(#9dd558, 5%);
+		background: adjust-color(#9dd558, $lightness: 5%);
 	}
 
 	&:active {
-		background: darken(#9dd558, 5%);
+		background: adjust-color(#9dd558, $lightness: -5%);
 	}
 }
 

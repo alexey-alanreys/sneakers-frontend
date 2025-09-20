@@ -1,11 +1,12 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+
+import { useFetch } from './hooks/useFetch';
 
 import Card from '@/components/Card/Card';
 import Drawer from '@/components/Drawer/Drawer';
 import Header from '@/components/Header';
 
-import { STORAGE_KEYS } from '@/constants/storage.constants';
+import { STORAGE_KEYS } from '@/constants/storage-keys.constants';
 
 import { storageService } from '@/services/storage.service';
 
@@ -18,11 +19,17 @@ const App = () => {
 	const [searchValue, setSearchValue] = useState('');
 	const [cartOpened, setCartOpened] = useState(false);
 
-	useEffect(() => {
-		axios
-			.get('https://68cb88e7716562cf5073d1cb.mockapi.io/items')
-			.then((res) => setItems(res.data));
+	const { data, loading, error } = useFetch(
+		'https://68cb88e7716562cf5073d1cb.mockapi.io/items',
+	);
 
+	useEffect(() => {
+		if (data && data.length > 0) {
+			setItems(data);
+		}
+	}, [data]);
+
+	useEffect(() => {
 		const savedFavorites = storageService.get(STORAGE_KEYS.FAVORITES) || [];
 		setFavorites(savedFavorites);
 

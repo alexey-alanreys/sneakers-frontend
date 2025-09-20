@@ -12,7 +12,7 @@ class StorageService {
 	 * @returns {any} The parsed value of the item,
 	 * or null if the item doesn't exist or parsing fails.
 	 */
-	getItem(key) {
+	get(key) {
 		if (!this.#isLocalStorageAvailable()) {
 			console.warn('localStorage is not available.');
 			return null;
@@ -35,7 +35,7 @@ class StorageService {
 	 * @param {string} key The key under which the value will be stored.
 	 * @param {any} value The value to be stored.
 	 */
-	setItem(key, value) {
+	set(key, value) {
 		if (!this.#isLocalStorageAvailable()) {
 			console.warn('localStorage is not available.');
 			return;
@@ -49,7 +49,7 @@ class StorageService {
 	 *
 	 * @param {string} key The key of the item to be removed.
 	 */
-	removeItem(key) {
+	remove(key) {
 		if (!this.#isLocalStorageAvailable()) {
 			console.warn('localStorage is not available.');
 			return;
