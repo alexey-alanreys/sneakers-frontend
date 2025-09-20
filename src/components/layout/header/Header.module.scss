@@ -1,0 +1,57 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 40px;
+	border-bottom: 1px solid #eaeaea;
+
+	.logo {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+		color: inherit;
+
+		&Image {
+			margin-right: 15px;
+		}
+
+		&Text {
+			h3 {
+				text-transform: uppercase;
+				font-size: 2rem;
+				font-weight: 700;
+				line-height: 2.4rem;
+			}
+
+			p {
+				font-size: 1.4rem;
+				color: #9d9d9d;
+			}
+		}
+	}
+
+	.nav {
+		&List {
+			display: flex;
+		}
+
+		.navItem {
+			display: flex;
+			align-items: center;
+			margin-right: 20px;
+			font-size: 1.4rem;
+			color: #5c5c5c;
+			cursor: pointer;
+
+			img {
+				width: 18px;
+				height: 18px;
+				margin-right: 8px;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+}

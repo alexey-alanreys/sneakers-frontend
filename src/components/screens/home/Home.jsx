@@ -82,7 +82,7 @@ const Home = () => {
 	};
 
 	return (
-		<div className='wrapper clear'>
+		<div className='wrapper'>
 			{cartOpened && (
 				<Drawer
 					onClose={() => setCartOpened(false)}
@@ -93,7 +93,7 @@ const Home = () => {
 			<Header onClickCart={() => setCartOpened(!cartOpened)} />
 			<main className='content p-40'>
 				<section className='d-flex align-center justify-between mb-40'>
-					<h1 className='mb-40'>
+					<h1>
 						{searchValue
 							? `Поиск по запросу: "${searchValue}"`
 							: 'Все кроссовки'}

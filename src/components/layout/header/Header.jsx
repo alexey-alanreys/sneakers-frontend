@@ -1,25 +1,48 @@
+import { useNavigate } from 'react-router-dom';
+
+import styles from './Header.module.scss';
+
 const Header = ({ onClickCart }) => {
+	const navigate = useNavigate();
+
 	return (
-		<header className='d-flex justify-between align-center p-40'>
-			<div className='d-flex align-center'>
-				<img width={40} height={40} src='img/logo.png' alt='Logotype' />
-				<div>
-					<h3 className='text-uppercase'>React Sneakers</h3>
-					<p className='opacity-5'>Магазин лучших кроссовок</p>
+		<header className={styles.header}>
+			<a href='/' className={styles.logo}>
+				<img
+					className={styles.logoImage}
+					width={40}
+					height={40}
+					src='img/logo.png'
+					alt='React Sneakers Logo'
+				/>
+				<div className={styles.logoText}>
+					<h3>React Sneakers</h3>
+					<p>Магазин лучших кроссовок</p>
 				</div>
-			</div>
-			<ul className='d-flex'>
-				<li className='mr-30 cu-p' onClick={onClickCart}>
-					<img width={18} height={18} src='img/cart.svg' alt='Корзина' />
-					<span>12 999 руб.</span>
-				</li>
-				<li className='mr-20 cu-p'>
-					<img width={18} height={18} src='img/heart.svg' alt='Закладки' />
-				</li>
-				<li>
-					<img width={18} height={18} src='img/user.svg' alt='Пользователь' />
-				</li>
-			</ul>
+			</a>
+
+			<nav className={styles.nav}>
+				<ul className={styles.navList}>
+					<li className={`${styles.navItem}`} onClick={onClickCart}>
+						<img src='img/cart.svg' alt='Корзина' />
+						<span>12 999 руб.</span>
+					</li>
+					<li
+						className={`${styles.navItem}`}
+						onClick={() => navigate('/favorites')}
+					>
+						<img src='img/heart.svg' alt='Закладки' />
+						<span>Закладки</span>
+					</li>
+					<li
+						className={`${styles.navItem}`}
+						onClick={() => navigate('/orders')}
+					>
+						<img src='img/user.svg' alt='Профиль' />
+						<span>Профиль</span>
+					</li>
+				</ul>
+			</nav>
 		</header>
 	);
 };
