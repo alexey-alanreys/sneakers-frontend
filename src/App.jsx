@@ -5,6 +5,10 @@ import Card from '@/components/Card/Card';
 import Drawer from '@/components/Drawer/Drawer';
 import Header from '@/components/Header';
 
+import { STORAGE_KEYS } from '@/constants/storage.constants';
+
+import { storageService } from '@/services/storage.service';
+
 import './App.scss';
 
 const App = () => {
@@ -19,52 +23,51 @@ const App = () => {
 			.get('https://68cb88e7716562cf5073d1cb.mockapi.io/items')
 			.then((res) => setItems(res.data));
 
-		axios
-			.get('https://68cb88e7716562cf5073d1cb.mockapi.io/cart')
-			.then((res) => setCartItems(res.data));
+		const savedFavorites = storageService.get(STORAGE_KEYS.FAVORITES) || [];
+		setFavorites(savedFavorites);
+
+		const savedCart = storageService.get(STORAGE_KEYS.CART) || [];
+		setCartItems(savedCart);
 	}, []);
 
 	const onAddToFavorites = (id) => {
 		setFavorites((prev) => {
 			const isInFavorites = prev.some((item) => item.id === id);
+			let newFavorites;
 
 			if (isInFavorites) {
-				return prev.filter((item) => item.id !== id);
+				newFavorites = prev.filter((item) => item.id !== id);
 			} else {
 				const itemToAdd = items.find((item) => item.id === id);
-
-				axios.post(
-					'https://68cb88e7716562cf5073d1cb.mockapi.io/favorites',
-					itemToAdd,
-				);
-
-				return [...prev, itemToAdd];
+				newFavorites = [...prev, itemToAdd];
 			}
+
+			storageService.set(STORAGE_KEYS.FAVORITES, newFavorites);
+			return newFavorites;
 		});
 	};
 
 	const onAddToCart = (id) => {
 		setCartItems((prev) => {
 			const isInCart = prev.some((item) => item.id === id);
+			let newCart;
 
 			if (isInCart) {
-				return prev.filter((item) => item.id !== id);
+				newCart = prev.filter((item) => item.id !== id);
 			} else {
 				const itemToAdd = items.find((item) => item.id === id);
-
-				axios.post(
-					'https://68cb88e7716562cf5073d1cb.mockapi.io/cart',
-					itemToAdd,
-				);
-
-				return [...prev, itemToAdd];
+				newCart = [...prev, itemToAdd];
 			}
+
+			storageService.set(STORAGE_KEYS.CART, newCart);
+			return newCart;
 		});
 	};
 
 	const onRemoveItem = (id) => {
-		axios.delete(`https://68cb88e7716562cf5073d1cb.mockapi.io/cart/${id}`);
-		setCartItems((prev) => prev.filter((item) => item.id !== id));
+		const newCart = cartItems.filter((item) => item.id !== id);
+		storageService.set(STORAGE_KEYS.CART, newCart);
+		setCartItems(newCart);
 	};
 
 	const onChangeSearchInput = (event) => {

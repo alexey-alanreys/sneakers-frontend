@@ -9,6 +9,8 @@
 		"/hooks/",
 		"/screens/",
 		"/components/",
+		"/constants/",
+		"/services/",
 		"^../(.*)",
 		"^./(.*)",
 		"/module.scss/"
