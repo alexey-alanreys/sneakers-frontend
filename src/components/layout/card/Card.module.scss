@@ -1,7 +1,7 @@
 .card {
 	position: relative;
 	border: 1px solid #f3f3f3;
-	padding: 30px;
+	padding: 3rem;
 	width: 220px;
 	border-radius: 40px;
 	transition:
@@ -18,22 +18,19 @@
 		top: 30px;
 		left: 30px;
 		cursor: pointer;
-		border: none;
-		background: transparent;
-		padding: 0;
 	}
 
 	&__image {
 		width: 100%;
 		height: 135px;
 		object-fit: contain;
-		margin-bottom: 15px;
+		margin-bottom: 1.5rem;
 	}
 
 	&__title {
 		font-weight: 400;
 		font-size: 1.4rem;
-		margin: 0 0 15px 0;
+		margin-bottom: 1.5rem;
 		text-align: start;
 	}
 
@@ -46,7 +43,7 @@
 	&__price {
 		display: flex;
 		flex-direction: column;
-		gap: 3px;
+		gap: 0.4rem;
 
 		span {
 			font-size: 1.2rem;
@@ -64,8 +61,5 @@
 
 	&__plus {
 		cursor: pointer;
-		border: none;
-		background: transparent;
-		padding: 0;
 	}
 }

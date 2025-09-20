@@ -1,83 +1,80 @@
-import { useState } from 'react';
-
-import Info from '@/components/layout/info/Info';
-
 import styles from './Drawer.module.scss';
 
 const Drawer = ({ onClose, onRemove, items = [], opened }) => {
-	const [isOrderComplete, setIsOrderComplete] = useState(false);
-
 	return (
-		<div className={`${styles.overlay} ${opened ? styles.overlayVisible : ''}`}>
-			<div className={styles.drawer}>
-				<h2 className='d-flex justify-between mb-30'>
-					Корзина{' '}
-					<img
+		<div
+			className={`${styles.overlay} ${opened ? styles.overlayVisible : ''}`}
+			onClick={onClose}
+		>
+			<aside className={styles.drawer} onClick={(e) => e.stopPropagation()}>
+				<header className={styles.drawer__header}>
+					<h2 className={styles.drawer__title}>Корзина</h2>
+					<button
+						type='button'
+						className={styles.drawer__close}
 						onClick={onClose}
-						className='cu-p'
-						src='img/btn-remove.svg'
-						alt='Close'
-					/>
-				</h2>
+						aria-label='Закрыть корзину'
+					>
+						<img src='img/btn-remove.svg' alt='Close' />
+					</button>
+				</header>
 
 				{items.length > 0 ? (
-					<div className='d-flex flex-column flex'>
-						<div className='items flex'>
-							{items.map((obj) => (
-								<div
-									key={obj.id}
-									className='cartItem d-flex align-center mb-20'
-								>
+					<>
+						<ul className={styles.drawer__items}>
+							{items.map((item) => (
+								<li key={item.id} className={styles.cartItem}>
 									<div
-										style={{ backgroundImage: `url(${obj.imageUrl})` }}
-										className='cartItemImg'
-									></div>
-
-									<div className='mr-20 flex'>
-										<p className='mb-5'>{obj.title}</p>
-										<b>{obj.price} руб.</b>
-									</div>
-									<img
-										onClick={() => onRemove(obj.id)}
-										className='removeBtn'
-										src='img/btn-remove.svg'
-										alt='Remove'
+										className={styles.cartItem__image}
+										style={{ backgroundImage: `url(${item.imageUrl})` }}
 									/>
-								</div>
+									<div className={styles.cartItem__info}>
+										<p>{item.title}</p>
+										<b>{item.price} руб.</b>
+									</div>
+									<button
+										type='button'
+										className={styles.cartItem__remove}
+										onClick={() => onRemove(item.id)}
+									>
+										<img src='img/btn-remove.svg' alt='Удалить' />
+									</button>
+								</li>
 							))}
+						</ul>
+
+						<div className={styles.cartTotalBlock}>
+							<ul>
+								<li>
+									<span>Итого:</span>
+									<div />
+									<b>12 999 руб. </b>
+								</li>
+								<li>
+									<span>НДФЛ 13%:</span>
+									<div />
+									<b>{((12999 * 13) / 100).toFixed(0)} руб.</b>
+								</li>
+							</ul>
+							<button className={styles.greenButton}>
+								Оформить заказ <img src='img/arrow.svg' alt='Arrow' />
+							</button>
 						</div>
-						{/* <div className="cartTotalBlock">
-              <ul>
-                <li>
-                  <span>Итого:</span>
-                  <div></div>
-                  <b>{totalPrice} руб. </b>
-                </li>
-                <li>
-                  <span>Налог 5%:</span>
-                  <div></div>
-                  <b>{(totalPrice / 100) * 5} руб. </b>
-                </li>
-              </ul>
-              <button disabled={isLoading} onClick={onClickOrder} className="greenButton">
-                Оформить заказ <img src="img/arrow.svg" alt="Arrow" />
-              </button>
-            </div> */}
-					</div>
+					</>
 				) : (
-					<Info
-						title={isOrderComplete ? 'Заказ оформлен!' : 'Корзина пустая'}
-						description={
-							isOrderComplete
-								? `Ваш заказ #${orderId} скоро будет передан курьерской доставке`
-								: 'Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.'
-						}
-						image={
-							isOrderComplete ? 'img/complete-order.jpg' : 'img/empty-cart.jpg'
-						}
-					/>
+					<div className={styles.cartEmpty}>
+						<img width='120' src='img/empty-cart.jpg' alt='Empty cart' />
+						<h2 className={styles.cartEmpty__title}>Корзина пустая</h2>
+						<p className={styles.cartEmpty__text}>
+							Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.
+						</p>
+						<button className={styles.greenButton} onClick={onClose}>
+							<img src='img/arrow.svg' alt='Arrow' />
+							Вернуться назад
+						</button>
+					</div>
 				)}
-			</div>
+			</aside>
 		</div>
 	);
 };
