@@ -57,7 +57,7 @@ const Home = () => {
 						</h1>
 						<div className={styles['search']}>
 							<img
-								src='/img/search.svg'
+								src='/images/search.svg'
 								alt='Search'
 								className={styles['search-icon']}
 							/>

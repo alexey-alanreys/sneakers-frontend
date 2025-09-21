@@ -1,0 +1,11 @@
+.cross-button {
+	background: transparent;
+	border: none;
+	opacity: 0.5;
+	cursor: pointer;
+	padding: 0;
+
+	.cross-button-icon {
+		display: block;
+	}
+}

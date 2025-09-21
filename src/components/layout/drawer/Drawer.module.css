@@ -34,17 +34,6 @@
 				font-size: 2.4rem;
 				font-weight: 700;
 			}
-
-			.drawer-close {
-				background: transparent;
-				border: none;
-				opacity: 0.5;
-				cursor: pointer;
-
-				.drawer-close-icon {
-					display: block;
-				}
-			}
 		}
 	}
 
@@ -89,18 +78,6 @@
 				p {
 					margin-bottom: 0.8rem;
 					font-size: 1.4rem;
-				}
-			}
-
-			.cart-item-remove {
-				flex-shrink: 0;
-				background: transparent;
-				border: none;
-				opacity: 0.5;
-				cursor: pointer;
-
-				.cart-item-remove-icon {
-					display: block;
 				}
 			}
 		}

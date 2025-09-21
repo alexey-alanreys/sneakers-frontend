@@ -24,7 +24,7 @@ const Favorites = () => {
 			<img
 				className={styles['favorites-empty-image']}
 				width={120}
-				src='img/sad-face.svg'
+				src='images/sad-face.svg'
 				alt='Нет избранного'
 			/>
 			<h2 className={styles['favorites-empty-title']}>У вас нет избранного</h2>

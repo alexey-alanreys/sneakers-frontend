@@ -42,11 +42,6 @@
 						font-size: 1.8rem;
 						font-weight: 600;
 					}
-
-					.order-card-cancel {
-						opacity: 0.5;
-						cursor: pointer;
-					}
 				}
 
 				.order-card-items {

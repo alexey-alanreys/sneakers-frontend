@@ -41,7 +41,7 @@ const Card = ({ id, title, imageUrl, price }) => {
 				onClick={() => toggleFavorite(item)}
 				aria-label='Добавить в избранное'
 			>
-				<img src={isFavorite ? 'img/liked.svg' : 'img/unliked.svg'} />
+				<img src={isFavorite ? 'images/liked.svg' : 'images/unliked.svg'} />
 			</button>
 
 			<img className={styles['card-image']} src={imageUrl} alt={title} />
@@ -57,7 +57,9 @@ const Card = ({ id, title, imageUrl, price }) => {
 					onClick={() => toggleInCart(item)}
 					aria-label='Добавить в корзину'
 				>
-					<img src={isInCart ? 'img/btn-checked.svg' : 'img/btn-plus.svg'} />
+					<img
+						src={isInCart ? 'images/btn-checked.svg' : 'images/btn-plus.svg'}
+					/>
 				</button>
 			</div>
 		</div>

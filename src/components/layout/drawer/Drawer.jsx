@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import CrossButton from '@/components/ui/cross-button/CrossButton';
 import GreenButton from '@/components/ui/green-button/GreenButton';
 
 import { useCart } from '@/hooks/useCart';
@@ -50,18 +51,7 @@ const Drawer = ({ onClose }) => {
 							<p>{item.title}</p>
 							<b>{item.price} руб.</b>
 						</div>
-						<button
-							type='button'
-							className={styles['cart-item-remove']}
-							onClick={() => removeFromCart(item.id)}
-							aria-label='Удалить товар из корзины'
-						>
-							<img
-								className={styles['cart-item-remove-icon']}
-								src='img/btn-remove.svg'
-								alt='Удалить'
-							/>
-						</button>
+						<CrossButton onClick={() => removeFromCart(item.id)} />
 					</li>
 				))}
 			</ul>
@@ -95,7 +85,7 @@ const Drawer = ({ onClose }) => {
 			return renderEmptyState(
 				'Заказ оформлен',
 				'Ваш заказ скоро будет передан курьерской доставке',
-				'img/grinning-face.svg',
+				'images/grinning-face.svg',
 			);
 		}
 
@@ -103,7 +93,7 @@ const Drawer = ({ onClose }) => {
 			return renderEmptyState(
 				'Корзина пустая',
 				'Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ',
-				'img/anxious-face.svg',
+				'images/anxious-face.svg',
 			);
 		}
 
@@ -115,18 +105,7 @@ const Drawer = ({ onClose }) => {
 			<aside className={styles['drawer']} onClick={(e) => e.stopPropagation()}>
 				<header className={styles['drawer-header']}>
 					<h2 className={styles['drawer-title']}>Корзина</h2>
-					<button
-						type='button'
-						className={styles['drawer-close']}
-						onClick={onClose}
-						aria-label='Закрыть корзину'
-					>
-						<img
-							className={styles['drawer-close-icon']}
-							src='img/btn-remove.svg'
-							alt='Закрыть'
-						/>
-					</button>
+					<CrossButton onClick={onClose} />
 				</header>
 
 				{renderContent()}

@@ -23,8 +23,8 @@
 
 	.button-content {
 		display: flex;
-		align-items: center;
 		justify-content: space-evenly;
+		align-items: center;
 		width: 100%;
 
 		.small {
