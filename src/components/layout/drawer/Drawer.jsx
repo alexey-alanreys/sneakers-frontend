@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import CrossButton from '@/components/ui/cross-button/CrossButton';
 import GreenButton from '@/components/ui/green-button/GreenButton';
@@ -13,6 +14,8 @@ const Drawer = ({ onClose }) => {
 	const { cartItems, removeFromCart } = useCart();
 	const { createOrder } = useOrders();
 
+	const navigate = useNavigate();
+
 	const totalAmount = cartItems.reduce((sum, item) => +item.price + sum, 0);
 	const tax = totalAmount * 0.13;
 
@@ -24,19 +27,46 @@ const Drawer = ({ onClose }) => {
 		setIsOrderCompleted(true);
 	};
 
-	const renderEmptyState = (title, text, imgSrc) => (
-		<div className={styles['cart-empty']}>
-			<img
-				className={styles['cart-empty-image']}
-				width={120}
-				src={imgSrc}
-				alt={title}
-			/>
-			<h2 className={styles['cart-empty-title']}>{title}</h2>
-			<p className={styles['cart-empty-text']}>{text}</p>
-			<GreenButton onClick={onClose}>Закрыть корзину</GreenButton>
-		</div>
-	);
+	const renderEmptyState = () => {
+		const stateProps = isOrderCompleted
+			? {
+					imageSrc: 'images/grinning-face.svg',
+					title: 'Заказ оформлен',
+					text: 'Ваш заказ скоро будет передан курьерской доставке',
+					buttonText: 'Перейти в заказы',
+					onButtonClick: () => navigate('/orders'),
+					buttonDirection: 'right',
+				}
+			: {
+					imageSrc: 'images/anxious-face.svg',
+					title: 'Корзина пустая',
+					text: 'Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ',
+					buttonText: 'Закрыть корзину',
+					onButtonClick: onClose,
+					buttonDirection: 'left',
+				};
+
+		return (
+			<div className={styles['cart-empty']}>
+				<img
+					className={styles['cart-empty-image']}
+					width={120}
+					src={stateProps.imageSrc}
+					alt={stateProps.title}
+				/>
+				<h2 className={styles['cart-empty-title']}>{stateProps.title}</h2>
+				<p className={styles['cart-empty-text']}>{stateProps.text}</p>
+				{stateProps.buttonText && (
+					<GreenButton
+						onClick={stateProps.onButtonClick}
+						direction={stateProps.buttonDirection}
+					>
+						{stateProps.buttonText}
+					</GreenButton>
+				)}
+			</div>
+		);
+	};
 
 	const renderCartItems = () => (
 		<>
@@ -81,22 +111,7 @@ const Drawer = ({ onClose }) => {
 	);
 
 	const renderContent = () => {
-		if (isOrderCompleted) {
-			return renderEmptyState(
-				'Заказ оформлен',
-				'Ваш заказ скоро будет передан курьерской доставке',
-				'images/grinning-face.svg',
-			);
-		}
-
-		if (!cartItems.length) {
-			return renderEmptyState(
-				'Корзина пустая',
-				'Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ',
-				'images/anxious-face.svg',
-			);
-		}
-
+		if (isOrderCompleted || !cartItems.length) return renderEmptyState();
 		return renderCartItems();
 	};
 
