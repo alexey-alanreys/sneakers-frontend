@@ -1,15 +1,12 @@
 @use 'sass:color';
 
 @use './reset' as *;
-@use './spacing.scss' as *;
-@use './display.scss' as *;
 
 * {
 	font-family: 'Inter', system-ui;
 }
 
 body {
-	margin: 0;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background-color: #e7f6ff;

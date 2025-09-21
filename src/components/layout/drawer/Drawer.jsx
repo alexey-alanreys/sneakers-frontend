@@ -1,11 +1,12 @@
+import { useCart } from '@/hooks/useCart';
+
 import styles from './Drawer.module.scss';
 
-const Drawer = ({ onClose, onRemove, items = [], opened }) => {
+const Drawer = ({ onClose }) => {
+	const { cartItems, removeFromCart } = useCart();
+
 	return (
-		<div
-			className={`${styles.overlay} ${opened ? styles.overlayVisible : ''}`}
-			onClick={onClose}
-		>
+		<div className={styles.overlay} onClick={onClose}>
 			<aside className={styles.drawer} onClick={(e) => e.stopPropagation()}>
 				<header className={styles.drawer__header}>
 					<h2 className={styles.drawer__title}>Корзина</h2>
@@ -19,10 +20,10 @@ const Drawer = ({ onClose, onRemove, items = [], opened }) => {
 					</button>
 				</header>
 
-				{items.length > 0 ? (
+				{cartItems.length > 0 ? (
 					<>
 						<ul className={styles.drawer__items}>
-							{items.map((item) => (
+							{cartItems.map((item) => (
 								<li key={item.id} className={styles.cartItem}>
 									<div
 										className={styles.cartItem__image}
@@ -35,7 +36,7 @@ const Drawer = ({ onClose, onRemove, items = [], opened }) => {
 									<button
 										type='button'
 										className={styles.cartItem__remove}
-										onClick={() => onRemove(item.id)}
+										onClick={() => removeFromCart(item.id)}
 									>
 										<img src='img/btn-remove.svg' alt='Удалить' />
 									</button>
