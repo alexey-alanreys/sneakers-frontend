@@ -10,7 +10,7 @@ export const CartProvider = ({ children }) => {
 	const [cartItems, setCartItems] = useState([]);
 
 	useEffect(() => {
-		const savedCart = storageService.get(STORAGE_KEYS.FAVORITES) || [];
+		const savedCart = storageService.get(STORAGE_KEYS.CART) || [];
 		setCartItems(savedCart);
 	}, []);
 
@@ -26,9 +26,9 @@ export const CartProvider = ({ children }) => {
 
 	const removeFromCart = (id) => {
 		setCartItems((prev) => {
-			const newCart = prev.filter((i) => i.id !== id);
-			storageService.set(STORAGE_KEYS.CART, newCart);
-			return newCart;
+			const remainingCart = prev.filter((i) => i.id !== id);
+			storageService.set(STORAGE_KEYS.CART, remainingCart);
+			return remainingCart;
 		});
 	};
 

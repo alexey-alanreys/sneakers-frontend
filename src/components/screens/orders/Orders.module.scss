@@ -11,16 +11,101 @@
 		gap: 4rem;
 		padding: 4rem;
 
-		.orders__topbar .orders__title {
-			font-size: 3.2rem;
-			font-weight: 700;
+		.orders__topbar {
+			margin-bottom: 2rem;
+
+			.orders__title {
+				font-size: 3.2rem;
+				font-weight: 700;
+			}
 		}
 
-		.orders__items {
-			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
-			justify-content: center;
+		.orders__list {
+			display: flex;
+			flex-direction: column;
 			gap: 3rem;
+
+			.orderCard {
+				border-radius: 16px;
+				padding: 1.5rem;
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+				border: 1px solid #f3f3f3;
+
+				.orderCard__header {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+
+					.orderCard__title {
+						font-size: 1.8rem;
+						font-weight: 600;
+					}
+
+					.orderCard__cancel {
+						opacity: 0.5;
+						cursor: pointer;
+					}
+				}
+
+				.orderCard__items {
+					display: flex;
+					gap: 1.5rem;
+					overflow-x: auto;
+
+					.cartItem {
+						display: flex;
+						align-items: center;
+						min-width: 280px;
+						max-width: 280px;
+						border: 1px solid #f3f3f3;
+						border-radius: 20px;
+						padding: 2rem;
+						margin-bottom: 1rem;
+						transition: box-shadow 0.2s ease;
+						text-wrap: balance;
+
+						&:hover {
+							box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+						}
+
+						.cartItem__image {
+							width: 7rem;
+							height: 7rem;
+							background-size: contain;
+							background-position: center;
+							background-repeat: no-repeat;
+							margin-right: 2rem;
+							flex-shrink: 0;
+						}
+
+						.cartItem__info {
+							flex: 1;
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
+
+							p {
+								font-size: 1.4rem;
+								margin-bottom: 0.8rem;
+							}
+
+							b {
+								font-size: 1.4rem;
+								font-weight: 700;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.orders__empty {
+			font-size: 1.6rem;
+			color: #9d9d9d;
+			text-align: center;
+			padding: 2rem;
 		}
 	}
 }

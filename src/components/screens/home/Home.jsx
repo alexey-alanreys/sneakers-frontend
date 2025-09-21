@@ -12,6 +12,7 @@ const Home = () => {
 	const [items, setItems] = useState([]);
 	const [searchValue, setSearchValue] = useState('');
 	const [cartOpened, setCartOpened] = useState(false);
+	const [showSkeleton, setShowSkeleton] = useState(false);
 
 	const { data, loading, error } = useFetch(
 		'https://68cb88e7716562cf5073d1cb.mockapi.io/items',
@@ -23,9 +24,22 @@ const Home = () => {
 		}
 	}, [data]);
 
+	useEffect(() => {
+		if (loading) {
+			setShowSkeleton(true);
+		} else {
+			const timeout = setTimeout(() => setShowSkeleton(false), 500);
+			return () => clearTimeout(timeout);
+		}
+	}, [loading]);
+
 	const onChangeSearchInput = (event) => {
 		setSearchValue(event.target.value);
 	};
+
+	const visibleItems = (!showSkeleton && !error ? items : []).filter((item) =>
+		item.title.toLowerCase().includes(searchValue.toLowerCase()),
+	);
 
 	return (
 		<>
@@ -57,16 +71,13 @@ const Home = () => {
 					</section>
 
 					<section className={styles.home__items}>
-						{loading && [...Array(12)].map((_, i) => <Card key={i} />)}
+						{showSkeleton && [...Array(12)].map((_, i) => <Card key={i} />)}
 
 						{error && <p>Произошла ошибка загрузки товаров</p>}
 
-						{!loading &&
-							items
-								.filter((item) =>
-									item.title.toLowerCase().includes(searchValue.toLowerCase()),
-								)
-								.map((item) => <Card key={item.id} {...item} />)}
+						{visibleItems.map((item) => (
+							<Card key={item.id} {...item} />
+						))}
 					</section>
 				</main>
 			</div>

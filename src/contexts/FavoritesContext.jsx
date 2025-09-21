@@ -26,9 +26,9 @@ export const FavoritesProvider = ({ children }) => {
 
 	const removeFromFavorites = (id) => {
 		setFavorites((prev) => {
-			const newFavorites = prev.filter((item) => item.id !== id);
-			storageService.set(STORAGE_KEYS.FAVORITES, newFavorites);
-			return newFavorites;
+			const remainingFavorites = prev.filter((item) => item.id !== id);
+			storageService.set(STORAGE_KEYS.FAVORITES, remainingFavorites);
+			return remainingFavorites;
 		});
 	};
 

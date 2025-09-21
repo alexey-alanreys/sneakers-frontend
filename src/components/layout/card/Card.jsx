@@ -6,8 +6,8 @@ import { useFavorites } from '@/hooks/useFavorites';
 import styles from './Card.module.scss';
 
 const Card = ({ id, title, imageUrl, price }) => {
-	const { favorites, toggleFavorite } = useFavorites();
 	const { cartItems, toggleInCart } = useCart();
+	const { favorites, toggleFavorite } = useFavorites();
 
 	if (!id) {
 		return (

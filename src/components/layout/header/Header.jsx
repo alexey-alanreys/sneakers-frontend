@@ -23,13 +23,18 @@ const Header = ({ onClickCart }) => {
 
 			<nav className={styles.nav}>
 				<ul className={styles.navList}>
-					<li className={`${styles.navItem}`} onClick={onClickCart}>
+					<li
+						className={`${styles.navItem}`}
+						onClick={onClickCart}
+						aria-label='Открыть корзину'
+					>
 						<img src='img/cart.svg' alt='Корзина' />
-						<span>12 999 руб.</span>
+						<span>Корзина</span>
 					</li>
 					<li
 						className={`${styles.navItem}`}
 						onClick={() => navigate('/favorites')}
+						aria-label='Перейти в избранное'
 					>
 						<img src='img/heart.svg' alt='Избранное' />
 						<span>Избранное</span>
@@ -37,9 +42,10 @@ const Header = ({ onClickCart }) => {
 					<li
 						className={`${styles.navItem}`}
 						onClick={() => navigate('/orders')}
+						aria-label='Перейти в заказы'
 					>
 						<img src='img/user.svg' alt='Профиль' />
-						<span>Профиль</span>
+						<span>Заказы</span>
 					</li>
 				</ul>
 			</nav>
