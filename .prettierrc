@@ -14,7 +14,7 @@
 		"/styles/",
 		"^../(.*)",
 		"^./(.*)",
-		"/module.scss/"
+		"/module.css/"
 	],
 	"importOrderSeparation": true,
 	"importOrderSortSpecifiers": true,

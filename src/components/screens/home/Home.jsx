@@ -6,7 +6,7 @@ import Card from '@/components/layout/card/Card';
 import Drawer from '@/components/layout/drawer/Drawer';
 import Header from '@/components/layout/header/Header';
 
-import styles from './Home.module.scss';
+import styles from './Home.module.css';
 
 const Home = () => {
 	const [items, setItems] = useState([]);

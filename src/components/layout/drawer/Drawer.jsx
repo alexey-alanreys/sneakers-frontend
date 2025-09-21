@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useCart } from '@/hooks/useCart';
 import { useOrders } from '@/hooks/useOrders';
 
-import styles from './Drawer.module.scss';
+import styles from './Drawer.module.css';
 
 const Drawer = ({ onClose }) => {
 	const [isOrderCompleted, setIsOrderCompleted] = useState(false);

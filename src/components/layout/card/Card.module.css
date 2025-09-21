@@ -13,53 +13,53 @@
 		transform: translateY(-5px);
 	}
 
-	&__favorite {
+	.card__favorite {
 		position: absolute;
 		top: 30px;
 		left: 30px;
 		cursor: pointer;
 	}
 
-	&__image {
+	.card__image {
 		width: 100%;
 		height: 135px;
 		object-fit: contain;
 		margin-bottom: 1.5rem;
 	}
 
-	&__title {
+	.card__title {
 		font-weight: 400;
 		font-size: 1.4rem;
 		margin-bottom: 1.5rem;
 		text-align: start;
 	}
 
-	&__footer {
+	.card__footer {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-	}
 
-	&__price {
-		display: flex;
-		flex-direction: column;
-		gap: 0.4rem;
+		.card__price {
+			display: flex;
+			flex-direction: column;
+			gap: 0.4rem;
 
-		span {
-			font-size: 1.2rem;
-			font-weight: 500;
+			span {
+				font-size: 1.2rem;
+				font-weight: 500;
 
-			color: #bdbdbd;
-			text-transform: uppercase;
+				color: #bdbdbd;
+				text-transform: uppercase;
+			}
+
+			b {
+				font-size: 1.4rem;
+				font-weight: 700;
+			}
 		}
 
-		b {
-			font-size: 1.4rem;
-			font-weight: 700;
+		.card__plus {
+			cursor: pointer;
 		}
-	}
-
-	&__plus {
-		cursor: pointer;
 	}
 }

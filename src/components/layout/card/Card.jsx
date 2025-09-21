@@ -3,7 +3,7 @@ import ContentLoader from 'react-content-loader';
 import { useCart } from '@/hooks/useCart';
 import { useFavorites } from '@/hooks/useFavorites';
 
-import styles from './Card.module.scss';
+import styles from './Card.module.css';
 
 const Card = ({ id, title, imageUrl, price }) => {
 	const { cartItems, toggleInCart } = useCart();

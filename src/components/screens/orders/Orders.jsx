@@ -5,7 +5,7 @@ import { useOrders } from '@/hooks/useOrders';
 import Drawer from '@/components/layout/drawer/Drawer';
 import Header from '@/components/layout/header/Header';
 
-import styles from './Orders.module.scss';
+import styles from './Orders.module.css';
 
 function Orders() {
 	const [cartOpened, setCartOpened] = useState(false);

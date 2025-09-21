@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import styles from './Header.module.scss';
+import styles from './Header.module.css';
 
 const Header = ({ onClickCart }) => {
 	const navigate = useNavigate();
