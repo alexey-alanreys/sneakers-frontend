@@ -45,32 +45,32 @@ const Home = () => {
 		<>
 			{cartOpened && <Drawer onClose={() => setCartOpened(false)} />}
 
-			<div className={styles.home}>
+			<div className={styles['home']}>
 				<Header onClickCart={() => setCartOpened(!cartOpened)} />
 
-				<main className={styles.home__content}>
-					<section className={styles.home__topbar}>
-						<h1 className={styles.home__title}>
+				<main className={styles['home-content']}>
+					<section className={styles['home-topbar']}>
+						<h1 className={styles['home-title']}>
 							{searchValue
 								? `Поиск по запросу: "${searchValue}"`
 								: 'Все кроссовки'}
 						</h1>
-						<div className={styles.search}>
+						<div className={styles['search']}>
 							<img
 								src='/img/search.svg'
 								alt='Search'
-								className={styles.search__icon}
+								className={styles['search-icon']}
 							/>
 							<input
 								onChange={onChangeSearchInput}
 								value={searchValue}
 								placeholder='Поиск...'
-								className={styles.search__input}
+								className={styles['search-input']}
 							/>
 						</div>
 					</section>
 
-					<section className={styles.home__items}>
+					<section className={styles['home-items']}>
 						{showSkeleton && [...Array(12)].map((_, i) => <Card key={i} />)}
 
 						{error && <p>Произошла ошибка загрузки товаров</p>}

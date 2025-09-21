@@ -22,21 +22,25 @@ const Drawer = ({ onClose }) => {
 	};
 
 	const renderEmptyState = (title, text, imgSrc) => (
-		<div className={styles.cartEmpty}>
+		<div className={styles['cart-empty']}>
 			<img
-				className={styles.cartEmpty__image}
+				className={styles['cart-empty-image']}
 				width={120}
 				src={imgSrc}
 				alt={title}
 			/>
-			<h2 className={styles.cartEmpty__title}>{title}</h2>
-			<p className={styles.cartEmpty__text}>{text}</p>
+			<h2 className={styles['cart-empty-title']}>{title}</h2>
+			<p className={styles['cart-empty-text']}>{text}</p>
 			<button
-				className={styles.cartEmpty__button}
+				className={styles['cart-empty-button']}
 				onClick={onClose}
 				aria-label='Закрыть корзину'
 			>
-				<img src='img/arrow.svg' />
+				<img
+					className={styles['cart-empty-button-icon']}
+					src='img/arrow.svg'
+					alt='Стрелка'
+				/>
 				Закрыть корзину
 			</button>
 		</div>
@@ -44,30 +48,34 @@ const Drawer = ({ onClose }) => {
 
 	const renderCartItems = () => (
 		<>
-			<ul className={styles.drawer__items}>
+			<ul className={styles['drawer-items']}>
 				{cartItems.map((item) => (
-					<li key={item.id} className={styles.cartItem}>
+					<li key={item.id} className={styles['cart-item']}>
 						<div
-							className={styles.cartItem__image}
+							className={styles['cart-item-image']}
 							style={{ backgroundImage: `url(${item.imageUrl})` }}
 						/>
-						<div className={styles.cartItem__info}>
+						<div className={styles['cart-item-info']}>
 							<p>{item.title}</p>
 							<b>{item.price} руб.</b>
 						</div>
 						<button
 							type='button'
-							className={styles.cartItem__remove}
+							className={styles['cart-item-remove']}
 							onClick={() => removeFromCart(item.id)}
 							aria-label='Удалить товар из корзины'
 						>
-							<img src='img/btn-remove.svg' />
+							<img
+								className={styles['cart-item-remove-icon']}
+								src='img/btn-remove.svg'
+								alt='Удалить'
+							/>
 						</button>
 					</li>
 				))}
 			</ul>
 
-			<div className={styles.cartTotalBlock}>
+			<div className={styles['cart-total-block']}>
 				<ul>
 					<li>
 						<span>Итого:</span>
@@ -75,17 +83,22 @@ const Drawer = ({ onClose }) => {
 						<b>{totalAmount.toFixed(2)} руб.</b>
 					</li>
 					<li>
-						<span>НДФЛ 13%:</span>
+						<span>НДС 13%:</span>
 						<div />
 						<b>{tax.toFixed(2)} руб.</b>
 					</li>
 				</ul>
 				<button
-					className={styles.cartTotalBlock__button}
+					className={styles['cart-total-block-button']}
 					onClick={handleCreateOrder}
 					aria-label='Оформить заказ'
 				>
-					Оформить заказ <img src='img/arrow.svg' />
+					Оформить заказ{' '}
+					<img
+						className={styles['cart-total-block-button-icon']}
+						src='img/arrow.svg'
+						alt='Стрелка'
+					/>
 				</button>
 			</div>
 		</>
@@ -112,17 +125,21 @@ const Drawer = ({ onClose }) => {
 	};
 
 	return (
-		<div className={styles.overlay} onClick={onClose}>
-			<aside className={styles.drawer} onClick={(e) => e.stopPropagation()}>
-				<header className={styles.drawer__header}>
-					<h2 className={styles.drawer__title}>Корзина</h2>
+		<div className={styles['overlay']} onClick={onClose}>
+			<aside className={styles['drawer']} onClick={(e) => e.stopPropagation()}>
+				<header className={styles['drawer-header']}>
+					<h2 className={styles['drawer-title']}>Корзина</h2>
 					<button
 						type='button'
-						className={styles.drawer__close}
+						className={styles['drawer-close']}
 						onClick={onClose}
 						aria-label='Закрыть корзину'
 					>
-						<img src='img/btn-remove.svg' />
+						<img
+							className={styles['drawer-close-icon']}
+							src='img/btn-remove.svg'
+							alt='Закрыть'
+						/>
 					</button>
 				</header>
 

@@ -19,20 +19,20 @@ function Orders() {
 	const handleToggleCart = () => setCartOpened((prev) => !prev);
 
 	const renderEmptyState = () => (
-		<div className={styles.ordersEmpty}>
+		<div className={styles['orders-empty']}>
 			<img
-				className={styles.ordersEmpty__image}
+				className={styles['orders-empty-image']}
 				width={120}
 				src='img/crying-face.svg'
 				alt='Нет заказов'
 			/>
-			<h2 className={styles.ordersEmpty__title}>У вас нет заказов</h2>
-			<p className={styles.ordersEmpty__text}>
+			<h2 className={styles['orders-empty-title']}>У вас нет заказов</h2>
+			<p className={styles['orders-empty-text']}>
 				Вернитесь на главную и оформите новый заказ
 			</p>
 			<button
 				type='button'
-				className={styles.ordersEmpty__button}
+				className={styles['orders-empty-button']}
 				onClick={() => navigate('/')}
 				aria-label='Вернуться на главную'
 			>
@@ -43,14 +43,14 @@ function Orders() {
 	);
 
 	const renderOrderCard = (orderId, items) => (
-		<div key={orderId} className={styles.orderCard}>
-			<header className={styles.orderCard__header}>
-				<h2 className={styles.orderCard__title}>
+		<div key={orderId} className={styles['order-card']}>
+			<header className={styles['order-card-header']}>
+				<h2 className={styles['order-card-title']}>
 					Заказ #{orderId.slice(0, 8)}
 				</h2>
 				<button
 					type='button'
-					className={styles.orderCard__cancel}
+					className={styles['order-card-cancel']}
 					onClick={() => cancelOrder(orderId)}
 					aria-label='Отменить заказ'
 				>
@@ -58,14 +58,14 @@ function Orders() {
 				</button>
 			</header>
 
-			<ul className={styles.orderCard__items}>
+			<ul className={styles['order-card-items']}>
 				{items.map(({ id, imageUrl, title, price }) => (
-					<li key={id} className={styles.cartItem}>
+					<li key={id} className={styles['cart-item']}>
 						<div
-							className={styles.cartItem__image}
+							className={styles['cart-item-image']}
 							style={{ backgroundImage: `url(${imageUrl})` }}
 						/>
-						<div className={styles.cartItem__info}>
+						<div className={styles['cart-item-info']}>
 							<p>{title}</p>
 							<b>{price} руб.</b>
 						</div>
@@ -79,18 +79,18 @@ function Orders() {
 		<>
 			{cartOpened && <Drawer onClose={() => setCartOpened(false)} />}
 
-			<div className={styles.orders}>
+			<div className={styles['orders']}>
 				<Header onClickCart={handleToggleCart} />
 
-				<main className={styles.orders__content}>
-					<section className={styles.orders__topbar}>
-						<h1 className={styles.orders__title}>Мои заказы</h1>
+				<main className={styles['orders-content']}>
+					<section className={styles['orders-topbar']}>
+						<h1 className={styles['orders-title']}>Мои заказы</h1>
 					</section>
 
 					{ordersArray.length === 0 ? (
 						renderEmptyState()
 					) : (
-						<section className={styles.orders__list}>
+						<section className={styles['orders-list']}>
 							{ordersArray.map(([orderId, items]) =>
 								renderOrderCard(orderId, items),
 							)}

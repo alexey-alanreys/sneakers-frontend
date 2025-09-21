@@ -18,20 +18,20 @@ const Favorites = () => {
 	const handleToggleCart = () => setCartOpened((prev) => !prev);
 
 	const renderEmptyState = () => (
-		<div className={styles.favoritesEmpty}>
+		<div className={styles['favorites-empty']}>
 			<img
-				className={styles.favoritesEmpty__image}
+				className={styles['favorites-empty-image']}
 				width={120}
 				src='img/sad-face.svg'
 				alt='Нет избранного'
 			/>
-			<h2 className={styles.favoritesEmpty__title}>У вас нет избранного</h2>
-			<p className={styles.favoritesEmpty__text}>
+			<h2 className={styles['favorites-empty-title']}>У вас нет избранного</h2>
+			<p className={styles['favorites-empty-text']}>
 				Вернитесь на главную и добавьте кроссовки в избранное
 			</p>
 			<button
 				type='button'
-				className={styles.favoritesEmpty__button}
+				className={styles['favorites-empty-button']}
 				onClick={() => navigate('/')}
 				aria-label='Вернуться на главную'
 			>
@@ -45,18 +45,18 @@ const Favorites = () => {
 		<>
 			{cartOpened && <Drawer onClose={() => setCartOpened(false)} />}
 
-			<div className={styles.favorites}>
+			<div className={styles['favorites']}>
 				<Header onClickCart={handleToggleCart} />
 
-				<main className={styles.favorites__content}>
-					<section className={styles.favorites__topbar}>
-						<h1 className={styles.favorites__title}>Избранное</h1>
+				<main className={styles['favorites-content']}>
+					<section className={styles['favorites-topbar']}>
+						<h1 className={styles['favorites-title']}>Избранное</h1>
 					</section>
 
 					{favorites.length === 0 ? (
 						renderEmptyState()
 					) : (
-						<section className={styles.favorites__items}>
+						<section className={styles['favorites-items']}>
 							{favorites.map((favorite) => (
 								<Card key={favorite.id} {...favorite} />
 							))}

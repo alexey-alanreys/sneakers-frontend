@@ -1,82 +1,81 @@
 .favorites {
-	background: #ffffff;
-	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
-	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
 	max-width: 1080px;
 	min-height: 850px;
 	margin: 50px auto;
-	display: flex;
-	flex-direction: column;
+	background: #fff;
+	border-radius: 20px;
+	box-shadow: 0 10px 20px rgb(0 0 0 / 4%);
 
-	.favorites__content {
+	.favorites-content {
 		display: flex;
-		flex-direction: column;
 		flex-grow: 1;
+		flex-direction: column;
 		gap: 4rem;
 		padding: 4rem;
 
-		.favorites__topbar .favorites__title {
+		.favorites-topbar .favorites-title {
 			font-size: 3.2rem;
 			font-weight: 700;
 		}
 
-		.favorites__items {
+		.favorites-items {
 			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
 			justify-content: center;
 			gap: 3rem;
+			grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
 		}
 
-		.favoritesEmpty {
+		.favorites-empty {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
-			margin: auto;
 			padding: 4rem;
+			margin: auto;
 			text-align: center;
 			animation: fadeIn 0.4s ease-in-out;
 
-			.favoritesEmpty__image {
-				margin-bottom: 2rem;
+			.favorites-empty-image {
 				width: 120px;
 				height: 120px;
+				margin-bottom: 2rem;
 				object-fit: contain;
 			}
 
-			.favoritesEmpty__title {
+			.favorites-empty-title {
+				margin-bottom: 1rem;
 				font-size: 2.2rem;
 				font-weight: 600;
-				margin-bottom: 1rem;
 			}
 
-			.favoritesEmpty__text {
+			.favorites-empty-text {
+				margin-bottom: 3rem;
 				font-size: 1.6rem;
 				line-height: 2.4rem;
-				margin-bottom: 3rem;
 				color: #9d9d9d;
 			}
 
-			.favoritesEmpty__button {
-				width: 100%;
-				padding: 1rem 2rem;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				gap: 1rem;
+			.favorites-empty-button {
 				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 1rem;
 				width: 300px;
 				height: 5rem;
-				background: #9dd558;
-				border-radius: 1.125rem;
-				color: #fff;
+				padding: 1rem 2rem;
 				font-size: 1.6rem;
 				font-weight: 600;
+				color: #fff;
+				background: #9dd558;
+				border-radius: 1.125rem;
 				cursor: pointer;
 
 				img {
-					transform: rotate(180deg);
 					transition: transform 0.15s ease-in-out;
+					transform: rotate(180deg);
 				}
 
 				&:hover img {

@@ -7,9 +7,9 @@ import App from './App';
 import { AppProviders } from './contexts';
 
 createRoot(document.getElementById('root')).render(
-	// <StrictMode>
-	<AppProviders>
-		<App />
-	</AppProviders>,
-	// </StrictMode>,
+	<StrictMode>
+		<AppProviders>
+			<App />
+		</AppProviders>
+	</StrictMode>,
 );

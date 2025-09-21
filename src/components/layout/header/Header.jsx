@@ -6,25 +6,25 @@ const Header = ({ onClickCart }) => {
 	const navigate = useNavigate();
 
 	return (
-		<header className={styles.header}>
-			<a href='/' className={styles.logo}>
+		<header className={styles['header']}>
+			<a href='/' className={styles['logo']}>
 				<img
-					className={styles.logoImage}
+					className={styles['logo-image']}
 					width={40}
 					height={40}
 					src='img/logo.png'
 					alt='React Sneakers Logo'
 				/>
-				<div className={styles.logoText}>
+				<div className={styles['logo-text']}>
 					<h3>React Sneakers</h3>
 					<p>Магазин лучших кроссовок</p>
 				</div>
 			</a>
 
-			<nav className={styles.nav}>
-				<ul className={styles.navList}>
+			<nav className={styles['nav']}>
+				<ul className={styles['nav-list']}>
 					<li
-						className={`${styles.navItem}`}
+						className={`${styles['nav-item']}`}
 						onClick={onClickCart}
 						aria-label='Открыть корзину'
 					>
@@ -32,7 +32,7 @@ const Header = ({ onClickCart }) => {
 						<span>Корзина</span>
 					</li>
 					<li
-						className={`${styles.navItem}`}
+						className={`${styles['nav-item']}`}
 						onClick={() => navigate('/favorites')}
 						aria-label='Перейти в избранное'
 					>
@@ -40,7 +40,7 @@ const Header = ({ onClickCart }) => {
 						<span>Избранное</span>
 					</li>
 					<li
-						className={`${styles.navItem}`}
+						className={`${styles['nav-item']}`}
 						onClick={() => navigate('/orders')}
 						aria-label='Перейти в заказы'
 					>

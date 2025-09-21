@@ -11,7 +11,7 @@ const Card = ({ id, title, imageUrl, price }) => {
 
 	if (!id) {
 		return (
-			<div className={styles.card}>
+			<div className={styles['card']}>
 				<ContentLoader
 					speed={2}
 					width={155}
@@ -35,25 +35,25 @@ const Card = ({ id, title, imageUrl, price }) => {
 	const isInCart = cartItems.some((cartItem) => cartItem.id === id);
 
 	return (
-		<div className={styles.card}>
+		<div className={styles['card']}>
 			<button
-				className={styles.card__favorite}
+				className={styles['card-favorite']}
 				onClick={() => toggleFavorite(item)}
 				aria-label='Добавить в избранное'
 			>
 				<img src={isFavorite ? 'img/liked.svg' : 'img/unliked.svg'} />
 			</button>
 
-			<img className={styles.card__image} src={imageUrl} alt={title} />
-			<h5 className={styles.card__title}>{title}</h5>
+			<img className={styles['card-image']} src={imageUrl} alt={title} />
+			<h5 className={styles['card-title']}>{title}</h5>
 
-			<div className={styles.card__footer}>
-				<div className={styles.card__price}>
+			<div className={styles['card-footer']}>
+				<div className={styles['card-price']}>
 					<span>Цена:</span>
 					<b>{price} руб.</b>
 				</div>
 				<button
-					className={styles.card__plus}
+					className={styles['card-plus']}
 					onClick={() => toggleInCart(item)}
 					aria-label='Добавить в корзину'
 				>

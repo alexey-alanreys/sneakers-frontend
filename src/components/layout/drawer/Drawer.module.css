@@ -1,106 +1,112 @@
 .overlay {
 	position: fixed;
-	inset: 0;
 	z-index: 10;
-	background-color: rgba(0, 0, 0, 0.5);
+	inset: 0;
+	background-color: rgb(0 0 0 / 50%);
+
+	b {
+		font-size: 1.4rem;
+		font-weight: 700;
+	}
 
 	.drawer {
 		position: fixed;
+		z-index: 20;
 		top: 0;
 		right: 0;
-		width: 400px;
-		height: 100%;
-		background: #fff;
-		padding: 3rem;
 		display: flex;
 		flex-direction: column;
-		transform: translateX(100%);
+		width: 400px;
+		height: 100%;
+		padding: 3rem;
+		background: #fff;
 		transition: transform 0.3s ease;
-		z-index: 20;
-		animation: slideInDrawer 0.3s forwards;
+		animation: slide-in-drawer 0.3s forwards;
+		transform: translateX(100%);
 
-		.drawer__header {
+		.drawer-header {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			margin-bottom: 2rem;
 
-			.drawer__title {
+			.drawer-title {
 				font-size: 2.4rem;
 				font-weight: 700;
 			}
 
-			.drawer__close {
-				opacity: 0.5;
-				cursor: pointer;
-			}
-		}
-	}
-
-	.drawer__items {
-		flex: 1;
-		overflow-y: auto;
-		margin-bottom: 2.5rem;
-		margin-right: -1rem;
-		padding-right: 1rem;
-
-		.cartItem {
-			display: flex;
-			align-items: center;
-			border: 1px solid #f3f3f3;
-			border-radius: 20px;
-			padding: 2rem;
-			margin-bottom: 2rem;
-			transition: box-shadow 0.2s ease;
-
-			&:hover {
-				box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-			}
-
-			.cartItem__image {
-				width: 7rem;
-				height: 7rem;
-				background-size: contain;
-				background-position: center;
-				background-repeat: no-repeat;
-				margin-right: 2rem;
-				flex-shrink: 0;
-			}
-
-			.cartItem__info {
-				flex: 1;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				margin-right: 1.2rem;
-				text-wrap: balance;
-
-				p {
-					font-size: 1.4rem;
-					margin-bottom: 0.8rem;
-				}
-
-				b {
-					font-size: 1.4rem;
-					font-weight: 700;
-				}
-			}
-
-			.cartItem__remove {
+			.drawer-close {
 				background: transparent;
 				border: none;
-				cursor: pointer;
 				opacity: 0.5;
-				flex-shrink: 0;
+				cursor: pointer;
 
-				img {
+				.drawer-close-icon {
 					display: block;
 				}
 			}
 		}
 	}
 
-	.cartTotalBlock {
+	.drawer-items {
+		flex: 1;
+		padding-right: 1rem;
+		margin-right: -1rem;
+		margin-bottom: 2.5rem;
+		overflow-y: auto;
+
+		.cart-item {
+			display: flex;
+			align-items: center;
+			padding: 2rem;
+			margin-bottom: 2rem;
+			border: 1px solid #f3f3f3;
+			border-radius: 20px;
+			transition: box-shadow 0.2s ease;
+
+			&:hover {
+				box-shadow: 0 5px 10px rgb(0 0 0 / 5%);
+			}
+
+			.cart-item-image {
+				flex-shrink: 0;
+				width: 7rem;
+				height: 7rem;
+				margin-right: 2rem;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
+
+			.cart-item-info {
+				display: flex;
+				flex: 1;
+				flex-direction: column;
+				justify-content: center;
+				margin-right: 1.2rem;
+				text-wrap: balance;
+
+				p {
+					margin-bottom: 0.8rem;
+					font-size: 1.4rem;
+				}
+			}
+
+			.cart-item-remove {
+				flex-shrink: 0;
+				background: transparent;
+				border: none;
+				opacity: 0.5;
+				cursor: pointer;
+
+				.cart-item-remove-icon {
+					display: block;
+				}
+			}
+		}
+	}
+
+	.cart-total-block {
 		ul {
 			li {
 				display: flex;
@@ -112,116 +118,116 @@
 				}
 
 				div {
-					flex: 1;
-					height: 1px;
-					border-bottom: 1px dashed #dfdfdf;
-					margin: 0 0.7rem;
 					position: relative;
 					top: -0.4rem;
-				}
-
-				b {
-					font-size: 1.6rem;
-					font-weight: 600;
+					flex: 1;
+					height: 1px;
+					margin: 0 0.7rem;
+					border-bottom: 1px dashed #dfdfdf;
 				}
 			}
 		}
 
-		.cartTotalBlock__button {
+		.cart-total-block-button {
+			position: relative;
 			width: 100%;
 			height: 5.5rem;
-			background: #9dd558;
-			border-radius: 18px;
-			color: #fff;
 			font-size: 1.8rem;
 			font-weight: 600;
+			color: #fff;
+			background: #9dd558;
+			border: none;
+			border-radius: 18px;
 			cursor: pointer;
-			position: relative;
 
-			img {
+			.cart-total-block-button-icon {
 				position: absolute;
-				right: 3rem;
 				top: 50%;
-				transform: translateY(-50%);
+				right: 3rem;
+				display: block;
 				transition: transform 0.15s ease-in-out;
+				transform: translateY(-50%);
 			}
 
-			&:hover img {
+			&:hover .cart-total-block-button-icon {
 				transform: translateY(-50%) translateX(0.5rem);
 			}
 		}
 	}
 
-	.cartEmpty {
+	.cart-empty {
 		display: flex;
+		flex-grow: 1;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		flex-grow: 1;
-		margin: auto;
 		padding: 4rem;
+		margin: auto;
 		text-align: center;
-		animation: fadeIn 0.4s ease-in-out;
+		animation: fade-in 0.4s ease-in-out;
 
-		.cartEmpty__image {
-			margin-bottom: 2rem;
+		.cart-empty-image {
 			width: 120px;
 			height: 120px;
+			margin-bottom: 2rem;
 			object-fit: contain;
 		}
 
-		.cartEmpty__title {
+		.cart-empty-title {
+			margin-bottom: 1rem;
 			font-size: 2.2rem;
 			font-weight: 600;
-			margin-bottom: 1rem;
 		}
 
-		.cartEmpty__text {
+		.cart-empty-text {
+			margin-bottom: 3rem;
 			font-size: 1.6rem;
 			line-height: 2.4rem;
-			margin-bottom: 3rem;
 			color: #9d9d9d;
 		}
 
-		.cartEmpty__button {
-			width: 100%;
-			padding: 1rem 2rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 1rem;
+		.cart-empty-button {
 			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 1rem;
+			width: 100%;
 			height: 5rem;
-			background: #9dd558;
-			border-radius: 1.125rem;
-			color: #fff;
+			padding: 1rem 2rem;
 			font-size: 1.6rem;
 			font-weight: 600;
+			color: #fff;
+			background: #9dd558;
+			border: none;
+			border-radius: 1.125rem;
 			cursor: pointer;
 
-			img {
-				transform: rotate(180deg);
+			.cart-empty-button-icon {
+				display: block;
 				transition: transform 0.15s ease-in-out;
+				transform: rotate(180deg);
 			}
 
-			&:hover img {
+			&:hover .cart-empty-button-icon {
 				transform: translateX(-0.5rem) rotate(180deg);
 			}
 		}
 	}
 }
 
-@keyframes slideInDrawer {
+@keyframes slide-in-drawer {
 	to {
 		transform: translateX(0);
 	}
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
 	from {
 		opacity: 0;
 		transform: scale(0.95);
 	}
+
 	to {
 		opacity: 1;
 		transform: scale(1);
