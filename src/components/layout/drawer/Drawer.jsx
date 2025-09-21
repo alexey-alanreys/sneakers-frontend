@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import GreenButton from '@/components/ui/green-button/GreenButton';
+
 import { useCart } from '@/hooks/useCart';
 import { useOrders } from '@/hooks/useOrders';
 
@@ -31,18 +33,7 @@ const Drawer = ({ onClose }) => {
 			/>
 			<h2 className={styles['cart-empty-title']}>{title}</h2>
 			<p className={styles['cart-empty-text']}>{text}</p>
-			<button
-				className={styles['cart-empty-button']}
-				onClick={onClose}
-				aria-label='Закрыть корзину'
-			>
-				<img
-					className={styles['cart-empty-button-icon']}
-					src='img/arrow.svg'
-					alt='Стрелка'
-				/>
-				Закрыть корзину
-			</button>
+			<GreenButton onClick={onClose}>Закрыть корзину</GreenButton>
 		</div>
 	);
 
@@ -88,18 +79,13 @@ const Drawer = ({ onClose }) => {
 						<b>{tax.toFixed(2)} руб.</b>
 					</li>
 				</ul>
-				<button
-					className={styles['cart-total-block-button']}
+				<GreenButton
 					onClick={handleCreateOrder}
-					aria-label='Оформить заказ'
+					direction='right'
+					textSize='large'
 				>
-					Оформить заказ{' '}
-					<img
-						className={styles['cart-total-block-button-icon']}
-						src='img/arrow.svg'
-						alt='Стрелка'
-					/>
-				</button>
+					Оформить заказ
+				</GreenButton>
 			</div>
 		</>
 	);

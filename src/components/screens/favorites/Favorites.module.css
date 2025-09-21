@@ -15,7 +15,7 @@
 		gap: 4rem;
 		padding: 4rem;
 
-		.favorites-topbar .favorites-title {
+		.favorites-title {
 			font-size: 3.2rem;
 			font-weight: 700;
 		}
@@ -51,36 +51,10 @@
 			}
 
 			.favorites-empty-text {
-				margin-bottom: 3rem;
+				margin-bottom: 2rem;
 				font-size: 1.6rem;
 				line-height: 2.4rem;
 				color: #9d9d9d;
-			}
-
-			.favorites-empty-button {
-				position: relative;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				gap: 1rem;
-				width: 300px;
-				height: 5rem;
-				padding: 1rem 2rem;
-				font-size: 1.6rem;
-				font-weight: 600;
-				color: #fff;
-				background: #9dd558;
-				border-radius: 1.125rem;
-				cursor: pointer;
-
-				img {
-					transition: transform 0.15s ease-in-out;
-					transform: rotate(180deg);
-				}
-
-				&:hover img {
-					transform: translateX(-0.5rem) rotate(180deg);
-				}
 			}
 		}
 	}

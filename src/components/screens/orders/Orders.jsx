@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import GreenButton from '@/components/ui/green-button/GreenButton';
+
 import { useOrders } from '@/hooks/useOrders';
 
 import Drawer from '@/components/layout/drawer/Drawer';
@@ -30,15 +32,9 @@ function Orders() {
 			<p className={styles['orders-empty-text']}>
 				Вернитесь на главную и оформите новый заказ
 			</p>
-			<button
-				type='button'
-				className={styles['orders-empty-button']}
-				onClick={() => navigate('/')}
-				aria-label='Вернуться на главную'
-			>
-				<img src='img/arrow.svg' alt='Arrow' />
+			<GreenButton onClick={() => navigate('/')} size='300px'>
 				Вернуться на главную
-			</button>
+			</GreenButton>
 		</div>
 	);
 
@@ -83,9 +79,7 @@ function Orders() {
 				<Header onClickCart={handleToggleCart} />
 
 				<main className={styles['orders-content']}>
-					<section className={styles['orders-topbar']}>
-						<h1 className={styles['orders-title']}>Мои заказы</h1>
-					</section>
+					<h1 className={styles['orders-title']}>Мои заказы</h1>
 
 					{ordersArray.length === 0 ? (
 						renderEmptyState()

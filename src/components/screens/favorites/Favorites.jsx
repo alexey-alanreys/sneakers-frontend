@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import GreenButton from '@/components/ui/green-button/GreenButton';
+
 import { useFavorites } from '@/hooks/useFavorites';
 
 import Card from '@/components/layout/card/Card';
@@ -29,15 +31,9 @@ const Favorites = () => {
 			<p className={styles['favorites-empty-text']}>
 				Вернитесь на главную и добавьте кроссовки в избранное
 			</p>
-			<button
-				type='button'
-				className={styles['favorites-empty-button']}
-				onClick={() => navigate('/')}
-				aria-label='Вернуться на главную'
-			>
-				<img src='img/arrow.svg' />
+			<GreenButton onClick={() => navigate('/')} size='300px'>
 				Вернуться на главную
-			</button>
+			</GreenButton>
 		</div>
 	);
 
@@ -49,9 +45,7 @@ const Favorites = () => {
 				<Header onClickCart={handleToggleCart} />
 
 				<main className={styles['favorites-content']}>
-					<section className={styles['favorites-topbar']}>
-						<h1 className={styles['favorites-title']}>Избранное</h1>
-					</section>
+					<h1 className={styles['favorites-title']}>Избранное</h1>
 
 					{favorites.length === 0 ? (
 						renderEmptyState()
