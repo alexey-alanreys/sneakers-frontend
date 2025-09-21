@@ -6,6 +6,8 @@ import Card from '@/components/layout/card/Card';
 import Drawer from '@/components/layout/drawer/Drawer';
 import Header from '@/components/layout/header/Header';
 
+import { ITEMS_API_URL } from '@/constants/api.constants';
+
 import styles from './Home.module.css';
 
 const Home = () => {
@@ -14,14 +16,10 @@ const Home = () => {
 	const [cartOpened, setCartOpened] = useState(false);
 	const [showSkeleton, setShowSkeleton] = useState(false);
 
-	const { data, loading, error } = useFetch(
-		'https://68cb88e7716562cf5073d1cb.mockapi.io/items',
-	);
+	const { data, loading, error } = useFetch(ITEMS_API_URL);
 
 	useEffect(() => {
-		if (data && data.length > 0) {
-			setItems(data);
-		}
+		if (data?.length) setItems(data);
 	}, [data]);
 
 	useEffect(() => {
@@ -33,13 +31,14 @@ const Home = () => {
 		}
 	}, [loading]);
 
-	const onChangeSearchInput = (event) => {
-		setSearchValue(event.target.value);
-	};
+	const onChangeSearchInput = (event) => setSearchValue(event.target.value);
 
-	const visibleItems = (!showSkeleton && !error ? items : []).filter((item) =>
-		item.title.toLowerCase().includes(searchValue.toLowerCase()),
-	);
+	const visibleItems =
+		!showSkeleton && !error
+			? items.filter((item) =>
+					item.title.toLowerCase().includes(searchValue.toLowerCase()),
+				)
+			: [];
 
 	return (
 		<>
@@ -71,7 +70,8 @@ const Home = () => {
 					</section>
 
 					<section className={styles['home-items']}>
-						{showSkeleton && [...Array(12)].map((_, i) => <Card key={i} />)}
+						{showSkeleton &&
+							Array.from({ length: 12 }, (_, i) => <Card key={i} />)}
 
 						{error && <p>Произошла ошибка загрузки товаров</p>}
 
