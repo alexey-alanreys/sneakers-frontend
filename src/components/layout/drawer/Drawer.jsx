@@ -36,8 +36,8 @@ const Drawer = ({ onClose }) => {
 				onClick={onClose}
 				aria-label='Закрыть корзину'
 			>
-				<img src='img/arrow.svg' alt='Arrow' />
-				Вернуться назад
+				<img src='img/arrow.svg' />
+				Закрыть корзину
 			</button>
 		</div>
 	);
@@ -61,7 +61,7 @@ const Drawer = ({ onClose }) => {
 							onClick={() => removeFromCart(item.id)}
 							aria-label='Удалить товар из корзины'
 						>
-							<img src='img/btn-remove.svg' alt='Удалить' />
+							<img src='img/btn-remove.svg' />
 						</button>
 					</li>
 				))}
@@ -85,7 +85,7 @@ const Drawer = ({ onClose }) => {
 					onClick={handleCreateOrder}
 					aria-label='Оформить заказ'
 				>
-					Оформить заказ <img src='img/arrow.svg' alt='Arrow' />
+					Оформить заказ <img src='img/arrow.svg' />
 				</button>
 			</div>
 		</>
@@ -95,16 +95,16 @@ const Drawer = ({ onClose }) => {
 		if (isOrderCompleted) {
 			return renderEmptyState(
 				'Заказ оформлен',
-				'Ваш заказ скоро будет передан курьерской доставке.',
-				'img/complete-order.jpg',
+				'Ваш заказ скоро будет передан курьерской доставке',
+				'img/grinning-face.svg',
 			);
 		}
 
 		if (!cartItems.length) {
 			return renderEmptyState(
 				'Корзина пустая',
-				'Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.',
-				'img/empty-cart.jpg',
+				'Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ',
+				'img/anxious-face.svg',
 			);
 		}
 
@@ -122,7 +122,7 @@ const Drawer = ({ onClose }) => {
 						onClick={onClose}
 						aria-label='Закрыть корзину'
 					>
-						<img src='img/btn-remove.svg' alt='Close' />
+						<img src='img/btn-remove.svg' />
 					</button>
 				</header>
 

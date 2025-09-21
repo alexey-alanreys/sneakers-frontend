@@ -1,33 +1,46 @@
 {
-  "name": "react-sneakers",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^19.1.1",
-    "react-content-loader": "^7.1.1",
-    "react-dom": "^19.1.1",
-    "react-router-dom": "^7.9.1"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.33.0",
-    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
-    "@types/react": "^19.1.10",
-    "@types/react-dom": "^19.1.7",
-    "@vitejs/plugin-react": "^5.0.0",
-    "eslint": "^9.33.0",
-    "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.3.0",
-    "prettier": "^3.6.2",
-    "vite": "^7.1.2"
-  }
+	"name": "sneakers-frontend",
+	"private": true,
+	"version": "1.0.0",
+	"type": "module",
+	"description": "Frontend for the Sneakers educational project",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"lint": "eslint .",
+		"preview": "vite preview"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/albert-alanreys/sneakers-frontend.git"
+	},
+	"keywords": [
+		"sneakers",
+		"frontend",
+		"react",
+		"react-router",
+		"vite"
+	],
+	"author": "Albert Alan-Reys",
+	"dependencies": {
+		"react": "^19.1.1",
+		"react-content-loader": "^7.1.1",
+		"react-dom": "^19.1.1",
+		"react-router-dom": "^7.9.1"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.33.0",
+		"@trivago/prettier-plugin-sort-imports": "^5.2.2",
+		"@types/react": "^19.1.10",
+		"@types/react-dom": "^19.1.7",
+		"@vitejs/plugin-react": "^5.0.0",
+		"eslint": "^9.33.0",
+		"eslint-import-resolver-alias": "^1.1.2",
+		"eslint-plugin-import": "^2.32.0",
+		"eslint-plugin-react-hooks": "^5.2.0",
+		"eslint-plugin-react-refresh": "^0.4.20",
+		"globals": "^16.3.0",
+		"prettier": "^3.6.2",
+		"vite": "^7.1.2"
+	}
 }

@@ -3,12 +3,15 @@
 	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
 	border-radius: 20px;
 	max-width: 1080px;
-	min-height: 1216px;
+	min-height: 850px;
 	margin: 50px auto;
+	display: flex;
+	flex-direction: column;
 
 	.orders__content {
 		display: flex;
 		flex-direction: column;
+		flex-grow: 1;
 		gap: 4rem;
 		padding: 4rem;
 
@@ -65,7 +68,6 @@
 						padding: 2rem;
 						margin-bottom: 1rem;
 						transition: box-shadow 0.2s ease;
-						text-wrap: balance;
 
 						&:hover {
 							box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
@@ -86,6 +88,7 @@
 							display: flex;
 							flex-direction: column;
 							justify-content: center;
+							text-wrap: balance;
 
 							p {
 								font-size: 1.4rem;
@@ -102,11 +105,62 @@
 			}
 		}
 
-		.orders__empty {
-			font-size: 1.6rem;
-			color: #9d9d9d;
+		.ordersEmpty {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin: auto;
+			padding: 4rem;
 			text-align: center;
-			padding: 2rem;
+			animation: fadeIn 0.4s ease-in-out;
+
+			.ordersEmpty__image {
+				margin-bottom: 2rem;
+				width: 120px;
+				height: 120px;
+				object-fit: contain;
+			}
+
+			.ordersEmpty__title {
+				font-size: 2.2rem;
+				font-weight: 600;
+				margin-bottom: 1rem;
+			}
+
+			.ordersEmpty__text {
+				font-size: 1.6rem;
+				line-height: 2.4rem;
+				margin-bottom: 3rem;
+				color: #9d9d9d;
+			}
+
+			.ordersEmpty__button {
+				width: 100%;
+				padding: 1rem 2rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 1rem;
+				position: relative;
+				width: 300px;
+				height: 5rem;
+				background: #9dd558;
+				border-radius: 1.125rem;
+				color: #fff;
+				font-size: 1.6rem;
+				font-weight: 600;
+				cursor: pointer;
+
+				img {
+					transform: rotate(180deg);
+					transition: transform 0.15s ease-in-out;
+				}
+
+				&:hover img {
+					transform: translateX(-0.5rem) rotate(180deg);
+				}
+			}
 		}
 	}
 }

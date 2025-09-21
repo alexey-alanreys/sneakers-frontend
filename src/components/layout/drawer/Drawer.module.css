@@ -73,6 +73,7 @@
 				flex-direction: column;
 				justify-content: center;
 				margin-right: 1.2rem;
+				text-wrap: balance;
 
 				p {
 					font-size: 1.4rem;
@@ -132,7 +133,7 @@
 			background: #9dd558;
 			border-radius: 18px;
 			color: #fff;
-			font-size: 1.6rem;
+			font-size: 1.8rem;
 			font-weight: 600;
 			cursor: pointer;
 			position: relative;
