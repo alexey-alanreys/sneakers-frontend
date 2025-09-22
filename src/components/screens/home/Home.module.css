@@ -1,7 +1,7 @@
 .home {
 	max-width: 1080px;
-	min-height: 850px;
-	margin: 50px auto;
+	min-height: 90vh;
+	margin: 5rem auto;
 	background: #fff;
 	border-radius: 20px;
 	box-shadow: 0 10px 20px rgb(0 0 0 / 4%);

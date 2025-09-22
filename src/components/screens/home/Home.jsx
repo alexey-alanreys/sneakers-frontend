@@ -51,7 +51,7 @@ const Home = () => {
 					<section className={styles['home-topbar']}>
 						<h1 className={styles['home-title']}>
 							{searchValue
-								? `Поиск по запросу: "${searchValue}"`
+								? `Результаты поиска для "${searchValue}"`
 								: 'Все кроссовки'}
 						</h1>
 						<div className={styles['search']}>

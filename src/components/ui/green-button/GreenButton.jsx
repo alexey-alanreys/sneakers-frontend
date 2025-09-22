@@ -9,7 +9,7 @@ const GreenButton = ({
 }) => {
 	return (
 		<button
-			className={`${styles['green-button']}`}
+			className={styles['green-button']}
 			style={{ width: size }}
 			onClick={onClick}
 		>

@@ -7,7 +7,12 @@ const Header = ({ onClickCart }) => {
 
 	return (
 		<header className={styles['header']}>
-			<a href='/' className={styles['logo']}>
+			<div
+				className={styles['logo']}
+				onClick={() => navigate('/')}
+				style={{ cursor: 'pointer' }}
+				aria-label='Перейти на главную'
+			>
 				<img
 					className={styles['logo-image']}
 					width={40}
@@ -19,12 +24,12 @@ const Header = ({ onClickCart }) => {
 					<h3>React Sneakers</h3>
 					<p>Магазин лучших кроссовок</p>
 				</div>
-			</a>
+			</div>
 
 			<nav className={styles['nav']}>
 				<ul className={styles['nav-list']}>
 					<li
-						className={`${styles['nav-item']}`}
+						className={styles['nav-item']}
 						onClick={onClickCart}
 						aria-label='Открыть корзину'
 					>
@@ -35,7 +40,7 @@ const Header = ({ onClickCart }) => {
 						<span>Корзина</span>
 					</li>
 					<li
-						className={`${styles['nav-item']}`}
+						className={styles['nav-item']}
 						onClick={() => navigate('/favorites')}
 						aria-label='Перейти в избранное'
 					>
@@ -46,7 +51,7 @@ const Header = ({ onClickCart }) => {
 						<span>Избранное</span>
 					</li>
 					<li
-						className={`${styles['nav-item']}`}
+						className={styles['nav-item']}
 						onClick={() => navigate('/orders')}
 						aria-label='Перейти в заказы'
 					>

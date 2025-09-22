@@ -6,6 +6,14 @@ Frontend for the **Sneakers** educational project.
 
 ---
 
+## 🌐 Try it live
+
+[![🌐 Open on GitHub Pages](https://img.shields.io/badge/Open-Project-9DD558?style=for-the-badge&logo=github&logoColor=white)](https://albert-alanreys.github.io/sneakers-frontend/)
+
+> Click the button above to open the live demo of the Sneakers project.
+
+---
+
 ## 🧰 Tech Stack
 
 > A quick overview of the main tools and libraries used in this project.
