@@ -1,0 +1,18 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	max-width: 1080px;
+	min-height: 90vh;
+	margin: 5rem auto;
+	background: #fff;
+	border-radius: 20px;
+	box-shadow: 0 10px 20px rgb(0 0 0 / 4%);
+}
+
+@media (max-width: 768px) {
+	.wrapper {
+		margin: 2rem 1rem;
+		border-radius: 1.5rem;
+		min-height: 95vh;
+	}
+}

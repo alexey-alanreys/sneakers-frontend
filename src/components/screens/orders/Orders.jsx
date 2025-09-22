@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import CrossButton from '@/components/ui/cross-button/CrossButton';
@@ -6,20 +5,16 @@ import GreenButton from '@/components/ui/green-button/GreenButton';
 
 import { useOrders } from '@/hooks/useOrders';
 
-import Drawer from '@/components/layout/drawer/Drawer';
-import Header from '@/components/layout/header/Header';
+import Layout from '@/components/layout/Layout';
 
 import styles from './Orders.module.css';
 
-function Orders() {
-	const [cartOpened, setCartOpened] = useState(false);
+const Orders = () => {
 	const { orders, cancelOrder } = useOrders();
 
 	const navigate = useNavigate();
 
 	const ordersArray = Object.entries(orders || {});
-
-	const handleToggleCart = () => setCartOpened((prev) => !prev);
 
 	const renderEmptyState = () => (
 		<div className={styles['orders-empty']}>
@@ -66,28 +61,22 @@ function Orders() {
 	);
 
 	return (
-		<>
-			{cartOpened && <Drawer onClose={() => setCartOpened(false)} />}
+		<Layout>
+			<main className={styles['orders']}>
+				<h1 className={styles['orders-title']}>Мои заказы</h1>
 
-			<div className={styles['orders']}>
-				<Header onClickCart={handleToggleCart} />
-
-				<main className={styles['orders-content']}>
-					<h1 className={styles['orders-title']}>Мои заказы</h1>
-
-					{ordersArray.length === 0 ? (
-						renderEmptyState()
-					) : (
-						<section className={styles['orders-list']}>
-							{ordersArray.map(([orderId, items]) =>
-								renderOrderCard(orderId, items),
-							)}
-						</section>
-					)}
-				</main>
-			</div>
-		</>
+				{ordersArray.length === 0 ? (
+					renderEmptyState()
+				) : (
+					<section className={styles['orders-list']}>
+						{ordersArray.map(([orderId, items]) =>
+							renderOrderCard(orderId, items),
+						)}
+					</section>
+				)}
+			</main>
+		</Layout>
 	);
-}
+};
 
 export default Orders;

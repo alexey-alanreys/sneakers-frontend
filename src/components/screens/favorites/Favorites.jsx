@@ -1,23 +1,18 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import GreenButton from '@/components/ui/green-button/GreenButton';
 
 import { useFavorites } from '@/hooks/useFavorites';
 
+import Layout from '@/components/layout/Layout';
 import Card from '@/components/layout/card/Card';
-import Drawer from '@/components/layout/drawer/Drawer';
-import Header from '@/components/layout/header/Header';
 
 import styles from './Favorites.module.css';
 
 const Favorites = () => {
-	const [cartOpened, setCartOpened] = useState(false);
 	const { favorites } = useFavorites();
 
 	const navigate = useNavigate();
-
-	const handleToggleCart = () => setCartOpened((prev) => !prev);
 
 	const renderEmptyState = () => (
 		<div className={styles['favorites-empty']}>
@@ -38,27 +33,21 @@ const Favorites = () => {
 	);
 
 	return (
-		<>
-			{cartOpened && <Drawer onClose={() => setCartOpened(false)} />}
+		<Layout>
+			<main className={styles['favorites']}>
+				<h1 className={styles['favorites-title']}>Избранное</h1>
 
-			<div className={styles['favorites']}>
-				<Header onClickCart={handleToggleCart} />
-
-				<main className={styles['favorites-content']}>
-					<h1 className={styles['favorites-title']}>Избранное</h1>
-
-					{favorites.length === 0 ? (
-						renderEmptyState()
-					) : (
-						<section className={styles['favorites-items']}>
-							{favorites.map((favorite) => (
-								<Card key={favorite.id} {...favorite} />
-							))}
-						</section>
-					)}
-				</main>
-			</div>
-		</>
+				{favorites.length === 0 ? (
+					renderEmptyState()
+				) : (
+					<section className={styles['favorites-items']}>
+						{favorites.map((favorite) => (
+							<Card key={favorite.id} {...favorite} />
+						))}
+					</section>
+				)}
+			</main>
+		</Layout>
 	);
 };
 
