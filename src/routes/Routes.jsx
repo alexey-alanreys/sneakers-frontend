@@ -4,7 +4,7 @@ import { routes } from './routes.data';
 
 const Router = () => {
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename='/sneakers-frontend'>
 			<Routes>
 				{routes.map((route) => {
 					return (

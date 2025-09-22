@@ -51,7 +51,7 @@ const Drawer = ({ onClose }) => {
 				<img
 					className={styles['cart-empty-image']}
 					width={120}
-					src={stateProps.imageSrc}
+					src={`${import.meta.env.BASE_URL}${stateProps.imageSrc}`}
 					alt={stateProps.title}
 				/>
 				<h2 className={styles['cart-empty-title']}>{stateProps.title}</h2>

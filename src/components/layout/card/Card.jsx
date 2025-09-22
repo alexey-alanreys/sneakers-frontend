@@ -41,10 +41,20 @@ const Card = ({ id, title, imageUrl, price }) => {
 				onClick={() => toggleFavorite(item)}
 				aria-label='Добавить в избранное'
 			>
-				<img src={isFavorite ? 'images/liked.svg' : 'images/unliked.svg'} />
+				<img
+					src={
+						isFavorite
+							? `${import.meta.env.BASE_URL}images/liked.svg`
+							: `${import.meta.env.BASE_URL}images/unliked.svg`
+					}
+				/>
 			</button>
 
-			<img className={styles['card-image']} src={imageUrl} alt={title} />
+			<img
+				className={styles['card-image']}
+				src={`${import.meta.env.BASE_URL}${imageUrl}`}
+				alt={title}
+			/>
 			<h5 className={styles['card-title']}>{title}</h5>
 
 			<div className={styles['card-footer']}>
@@ -58,7 +68,11 @@ const Card = ({ id, title, imageUrl, price }) => {
 					aria-label='Добавить в корзину'
 				>
 					<img
-						src={isInCart ? 'images/btn-checked.svg' : 'images/btn-plus.svg'}
+						src={
+							isInCart
+								? `${import.meta.env.BASE_URL}images/btn-checked.svg`
+								: `${import.meta.env.BASE_URL}images/btn-plus.svg`
+						}
 					/>
 				</button>
 			</div>

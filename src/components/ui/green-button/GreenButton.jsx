@@ -17,7 +17,7 @@ const GreenButton = ({
 				{direction === 'left' && (
 					<img
 						className={`${styles['green-button-icon']} ${styles.left}`}
-						src='images/arrow.svg'
+						src={`${import.meta.env.BASE_URL}images/arrow.svg`}
 						alt='arrow'
 					/>
 				)}
@@ -27,7 +27,7 @@ const GreenButton = ({
 				{direction === 'right' && (
 					<img
 						className={`${styles['green-button-icon']} ${styles.right}`}
-						src='images/arrow.svg'
+						src={`${import.meta.env.BASE_URL}images/arrow.svg`}
 						alt='arrow'
 					/>
 				)}

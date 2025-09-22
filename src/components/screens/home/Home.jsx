@@ -56,7 +56,7 @@ const Home = () => {
 						</h1>
 						<div className={styles['search']}>
 							<img
-								src='/images/search.svg'
+								src={`${import.meta.env.BASE_URL}images/search.svg`}
 								alt='Search'
 								className={styles['search-icon']}
 							/>

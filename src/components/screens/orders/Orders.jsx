@@ -26,7 +26,7 @@ function Orders() {
 			<img
 				className={styles['orders-empty-image']}
 				width={120}
-				src='images/crying-face.svg'
+				src={`${import.meta.env.BASE_URL}images/crying-face.svg`}
 				alt='Нет заказов'
 			/>
 			<h2 className={styles['orders-empty-title']}>У вас нет заказов</h2>

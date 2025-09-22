@@ -12,7 +12,7 @@ const Header = ({ onClickCart }) => {
 					className={styles['logo-image']}
 					width={40}
 					height={40}
-					src='images/logo.png'
+					src={`${import.meta.env.BASE_URL}images/logo.png`}
 					alt='React Sneakers Logo'
 				/>
 				<div className={styles['logo-text']}>
@@ -28,7 +28,10 @@ const Header = ({ onClickCart }) => {
 						onClick={onClickCart}
 						aria-label='Открыть корзину'
 					>
-						<img src='images/cart.svg' alt='Корзина' />
+						<img
+							src={`${import.meta.env.BASE_URL}images/cart.svg`}
+							alt='Корзина'
+						/>
 						<span>Корзина</span>
 					</li>
 					<li
@@ -36,7 +39,10 @@ const Header = ({ onClickCart }) => {
 						onClick={() => navigate('/favorites')}
 						aria-label='Перейти в избранное'
 					>
-						<img src='images/heart.svg' alt='Избранное' />
+						<img
+							src={`${import.meta.env.BASE_URL}images/heart.svg`}
+							alt='Избранное'
+						/>
 						<span>Избранное</span>
 					</li>
 					<li
@@ -44,7 +50,10 @@ const Header = ({ onClickCart }) => {
 						onClick={() => navigate('/orders')}
 						aria-label='Перейти в заказы'
 					>
-						<img src='images/user.svg' alt='Профиль' />
+						<img
+							src={`${import.meta.env.BASE_URL}images/orders.svg`}
+							alt='Заказы'
+						/>
 						<span>Заказы</span>
 					</li>
 				</ul>

@@ -5,7 +5,7 @@ const CrossButton = ({ onClick }) => {
 		<button type='button' className={styles['cross-button']} onClick={onClick}>
 			<img
 				className={styles['cross-button-icon']}
-				src='images/btn-cross.svg'
+				src={`${import.meta.env.BASE_URL}images/btn-cross.svg`}
 				alt='Cross'
 			/>
 		</button>
