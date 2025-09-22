@@ -82,7 +82,7 @@
 
 	.cart-total-block {
 		ul {
-			font-size: 1.8rem;
+			font-size: 1.6rem;
 
 			li {
 				display: flex;
@@ -149,5 +149,42 @@
 	to {
 		opacity: 1;
 		transform: scale(1);
+	}
+}
+
+@media (max-width: 768px) {
+	.overlay {
+		.drawer {
+			width: 100%;
+			padding: 2rem;
+		}
+
+		.drawer-items {
+			.cart-item {
+				padding: 1.5rem;
+
+				.cart-item-image {
+					width: 60px;
+					height: 60px;
+					margin-right: 1.5rem;
+				}
+			}
+		}
+
+		.cart-total-block {
+			ul {
+				font-size: 1.6rem;
+			}
+		}
+
+		.cart-empty {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 2.5rem;
+			width: 100%;
+			text-align: center;
+		}
 	}
 }

@@ -39,7 +39,7 @@
 			display: flex;
 			align-items: center;
 			margin-right: 2rem;
-			font-size: 1.4rem;
+			font-size: 1.6rem;
 			color: #5c5c5c;
 			cursor: pointer;
 
@@ -51,6 +51,37 @@
 
 			&:last-child {
 				margin-right: 0;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.header {
+		flex-direction: column;
+		gap: 2rem;
+		padding: 2rem;
+
+		.logo {
+			.logo-text {
+				h3 {
+					font-size: 1.6rem;
+				}
+
+				p {
+					font-size: 1.4rem;
+				}
+			}
+		}
+
+		.nav {
+			.nav-item {
+				margin-right: 1.5rem;
+
+				img {
+					width: 16px;
+					height: 16px;
+				}
 			}
 		}
 	}

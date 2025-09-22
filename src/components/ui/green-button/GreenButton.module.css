@@ -57,3 +57,14 @@
 		transform: translateX(-0.5rem) rotate(180deg);
 	}
 }
+
+@media (max-width: 768px) {
+	.green-button {
+		height: 4.5rem;
+		font-size: 1.4rem;
+
+		.button-content {
+			font-size: 1.6rem;
+		}
+	}
+}

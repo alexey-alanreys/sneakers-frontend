@@ -59,3 +59,37 @@
 		}
 	}
 }
+
+@media (max-width: 768px) {
+	.favorites {
+		margin: 2rem 1rem;
+		border-radius: 1.5rem;
+		min-height: 95vh;
+
+		.favorites-content {
+			gap: 2.5rem;
+			padding: 2.5rem;
+
+			.favorites-title {
+				font-size: 2.6rem;
+			}
+
+			.favorites-items {
+				display: grid;
+				grid-template-columns: 1fr;
+				justify-items: center;
+				gap: 2rem;
+			}
+
+			.favorites-empty {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				padding: 2.5rem;
+				width: 100%;
+				text-align: center;
+			}
+		}
+	}
+}
