@@ -73,10 +73,11 @@ const Drawer = ({ onClose }) => {
 			<ul className={styles['drawer-items']}>
 				{cartItems.map((item) => (
 					<li key={item.id} className={styles['cart-item']}>
-						<div
+						<img
 							className={styles['cart-item-image']}
-							style={{ backgroundImage: `url(${item.imageUrl})` }}
+							src={`${import.meta.env.BASE_URL}${item.imageUrl}`}
 						/>
+
 						<div className={styles['cart-item-info']}>
 							<p>{item.title}</p>
 							<b>{item.price} руб.</b>
