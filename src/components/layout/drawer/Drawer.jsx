@@ -7,6 +7,8 @@ import GreenButton from '@/components/ui/green-button/GreenButton';
 import { useCart } from '@/hooks/useCart';
 import { useOrders } from '@/hooks/useOrders';
 
+import { ROUTES } from '@/constants/routes.constants';
+
 import styles from './Drawer.module.css';
 
 const Drawer = ({ onClose }) => {
@@ -34,7 +36,7 @@ const Drawer = ({ onClose }) => {
 					title: 'Заказ оформлен',
 					text: 'Ваш заказ скоро будет передан курьерской доставке',
 					buttonText: 'Перейти в заказы',
-					onButtonClick: () => navigate('/orders'),
+					onButtonClick: () => navigate(ROUTES.ORDERS),
 					buttonDirection: 'right',
 				}
 			: {

@@ -7,6 +7,8 @@ import { useFavorites } from '@/hooks/useFavorites';
 import Layout from '@/components/layout/Layout';
 import Card from '@/components/layout/card/Card';
 
+import { ROUTES } from '@/constants/routes.constants';
+
 import styles from './Favorites.module.css';
 
 const Favorites = () => {
@@ -26,7 +28,7 @@ const Favorites = () => {
 			<p className={styles['favorites-empty-text']}>
 				Вернитесь на главную и добавьте кроссовки в избранное
 			</p>
-			<GreenButton onClick={() => navigate('/')} size='300px'>
+			<GreenButton onClick={() => navigate(ROUTES.HOME)} size='300px'>
 				Вернуться на главную
 			</GreenButton>
 		</div>

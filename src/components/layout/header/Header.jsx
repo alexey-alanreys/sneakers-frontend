@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
+import { ROUTES } from '@/constants/routes.constants';
+
 import styles from './Header.module.css';
 
 const Header = ({ onClickCart }) => {
@@ -9,7 +11,7 @@ const Header = ({ onClickCart }) => {
 		<header className={styles['header']}>
 			<div
 				className={styles['logo']}
-				onClick={() => navigate('/')}
+				onClick={() => navigate(ROUTES.HOME)}
 				style={{ cursor: 'pointer' }}
 				aria-label='Перейти на главную'
 			>
@@ -41,7 +43,7 @@ const Header = ({ onClickCart }) => {
 					</li>
 					<li
 						className={styles['nav-item']}
-						onClick={() => navigate('/favorites')}
+						onClick={() => navigate(ROUTES.FAVORITES)}
 						aria-label='Перейти в избранное'
 					>
 						<img
@@ -52,7 +54,7 @@ const Header = ({ onClickCart }) => {
 					</li>
 					<li
 						className={styles['nav-item']}
-						onClick={() => navigate('/orders')}
+						onClick={() => navigate(ROUTES.ORDERS)}
 						aria-label='Перейти в заказы'
 					>
 						<img

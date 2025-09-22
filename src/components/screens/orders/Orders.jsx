@@ -7,6 +7,8 @@ import { useOrders } from '@/hooks/useOrders';
 
 import Layout from '@/components/layout/Layout';
 
+import { ROUTES } from '@/constants/routes.constants';
+
 import styles from './Orders.module.css';
 
 const Orders = () => {
@@ -28,7 +30,7 @@ const Orders = () => {
 			<p className={styles['orders-empty-text']}>
 				Вернитесь на главную и оформите новый заказ
 			</p>
-			<GreenButton onClick={() => navigate('/')} size='300px'>
+			<GreenButton onClick={() => navigate(ROUTES.HOME)} size='300px'>
 				Вернуться на главную
 			</GreenButton>
 		</div>
