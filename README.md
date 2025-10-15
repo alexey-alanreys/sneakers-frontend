@@ -96,5 +96,15 @@ yarn dev
 
 ---
 
+## 🚀 Deployment
+
+The project is automatically deployed to **GitHub Pages** via **GitHub Actions**.  
+Workflow file: `.github/workflows/deploy.yml`.
+
+You can view the live site here:  
+👉 [https://albert-alanreys.github.io/sneakers-frontend/](https://albert-alanreys.github.io/sneakers-frontend/)
+
+---
+
 **License:** MIT  
 **Author:** [Albert Alan-Reys](https://github.com/albert-alanreys)
