@@ -8,7 +8,7 @@ Frontend for the **Sneakers** educational project.
 
 ## 🌐 Try it live
 
-[![🌐 Open on GitHub Pages](https://img.shields.io/badge/Open-Project-9DD558?style=for-the-badge&logo=github&logoColor=white)](https://albert-alanreys.github.io/sneakers-frontend/)
+[![🌐 Open on GitHub Pages](https://img.shields.io/badge/Open-Project-9DD558?style=for-the-badge&logo=github&logoColor=white)](https://alexey-alanreys.github.io/sneakers-frontend/)
 
 > Click the button above to open the live demo of the Sneakers project.
 
@@ -98,13 +98,13 @@ yarn dev
 
 ## 🚀 Deployment
 
-The project is automatically deployed to **GitHub Pages** via **GitHub Actions**.  
+The project is automatically deployed to **GitHub Pages** via **GitHub Actions**.
 Workflow file: `.github/workflows/deploy.yml`.
 
-You can view the live site here:  
-👉 [https://albert-alanreys.github.io/sneakers-frontend/](https://albert-alanreys.github.io/sneakers-frontend/)
+You can view the live site here:
+👉 [https://alexey-alanreys.github.io/sneakers-frontend/](https://alexey-alanreys.github.io/sneakers-frontend/)
 
 ---
 
-**License:** MIT  
-**Author:** [Albert Alan-Reys](https://github.com/albert-alanreys)
+**License:** MIT
+**Author:** [Alexey Alan-Reys](https://github.com/alexey-alanreys)
