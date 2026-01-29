@@ -15,7 +15,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/albert-alanreys/sneakers-frontend.git"
+		"url": "git+https://github.com/alexey-alanreys/sneakers-frontend.git"
 	},
 	"keywords": [
 		"sneakers",
@@ -24,7 +24,7 @@
 		"react-router",
 		"vite"
 	],
-	"author": "Albert Alan-Reys",
+	"author": "Alexey Alan-Reys",
 	"dependencies": {
 		"react": "^19.1.1",
 		"react-content-loader": "^7.1.1",
